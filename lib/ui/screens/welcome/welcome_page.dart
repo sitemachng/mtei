@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:mtei/ui/router/router.gr.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mtei/ui/core/mtei_config.dart';
+import 'package:mtei/ui/core/ui_config.dart';
 import 'package:mtei/ui/core/styles.dart';
 
 class WelcomePage extends StatelessWidget {
@@ -35,7 +35,7 @@ class WelcomePage extends StatelessWidget {
                       width: 32.0,
                     ),
                     Text(
-                      mtei.app_name,
+                      UIConfig.app_name,
                       style: kHeadingTextStyle.copyWith(
                           color: KAppPurple, fontWeight: FontWeight.bold),
                     ),

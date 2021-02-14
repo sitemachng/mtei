@@ -9,13 +9,20 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
+import '../screens/bill_payment/bill_payment_page.dart';
+import '../screens/credit_report/credit_report_page.dart';
 import '../screens/home/home_page.dart';
 import '../screens/intro/intro_page.dart';
+import '../screens/loan/loan_page.dart';
+import '../screens/manage_cards/manage_cards_page.dart';
+import '../screens/notifications/notifications_page.dart';
+import '../screens/send_money/send_money_page.dart';
 import '../screens/sign_in/sign_in_page.dart';
 import '../screens/sign_up/sign_up_page.dart';
 import '../screens/sign_up/sign_up_page_otp.dart';
 import '../screens/sign_up/sign_up_page_phone.dart';
 import '../screens/sign_up/sign_up_page_pincode.dart';
+import '../screens/wallet/wallet_page.dart';
 import '../screens/welcome/welcome_page.dart';
 
 class Routes {
@@ -27,6 +34,13 @@ class Routes {
   static const String signUpPageOTP = '/sign-up-page-ot-p';
   static const String signUpPagePincode = '/sign-up-page-pincode';
   static const String homePage = '/home-page';
+  static const String loanPage = '/loan-page';
+  static const String walletPage = '/wallet-page';
+  static const String creditReportPage = '/credit-report-page';
+  static const String sendMoneyPage = '/send-money-page';
+  static const String billPaymentPage = '/bill-payment-page';
+  static const String manageCardsPage = '/manage-cards-page';
+  static const String notificationsPage = '/notifications-page';
   static const all = <String>{
     introPage,
     welcomePage,
@@ -36,6 +50,13 @@ class Routes {
     signUpPageOTP,
     signUpPagePincode,
     homePage,
+    loanPage,
+    walletPage,
+    creditReportPage,
+    sendMoneyPage,
+    billPaymentPage,
+    manageCardsPage,
+    notificationsPage,
   };
 }
 
@@ -51,6 +72,13 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.signUpPageOTP, page: SignUpPageOTP),
     RouteDef(Routes.signUpPagePincode, page: SignUpPagePincode),
     RouteDef(Routes.homePage, page: HomePage),
+    RouteDef(Routes.loanPage, page: LoanPage),
+    RouteDef(Routes.walletPage, page: WalletPage),
+    RouteDef(Routes.creditReportPage, page: CreditReportPage),
+    RouteDef(Routes.sendMoneyPage, page: SendMoneyPage),
+    RouteDef(Routes.billPaymentPage, page: BillPaymentPage),
+    RouteDef(Routes.manageCardsPage, page: ManageCardsPage),
+    RouteDef(Routes.notificationsPage, page: NotificationsPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -109,6 +137,60 @@ class AppRouter extends RouterBase {
     HomePage: (data) {
       return PageRouteBuilder<dynamic>(
         pageBuilder: (context, animation, secondaryAnimation) => HomePage(),
+        settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+      );
+    },
+    LoanPage: (data) {
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) => LoanPage(),
+        settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+      );
+    },
+    WalletPage: (data) {
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) => WalletPage(),
+        settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+      );
+    },
+    CreditReportPage: (data) {
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            CreditReportPage(),
+        settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+      );
+    },
+    SendMoneyPage: (data) {
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            SendMoneyPage(),
+        settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+      );
+    },
+    BillPaymentPage: (data) {
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            BillPaymentPage(),
+        settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+      );
+    },
+    ManageCardsPage: (data) {
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            ManageCardsPage(),
+        settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+      );
+    },
+    NotificationsPage: (data) {
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            NotificationsPage(),
         settings: data,
         transitionsBuilder: TransitionsBuilders.fadeIn,
       );

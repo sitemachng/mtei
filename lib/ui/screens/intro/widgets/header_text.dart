@@ -1,4 +1,4 @@
-import 'package:mtei/ui/core/mtei_config.dart';
+import 'package:mtei/ui/core/ui_config.dart';
 import 'package:flutter/material.dart';
 import 'package:mtei/ui/core/styles.dart';
 
@@ -22,7 +22,7 @@ class HeaderText extends StatelessWidget {
                   width: 32.0,
                 ),
                 Text(
-                  mtei.app_name,
+                  UIConfig.app_name,
                   style: kHeadingTextStyle,
                 ),
               ],

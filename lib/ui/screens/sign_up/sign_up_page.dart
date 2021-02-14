@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mtei/ui/core/mtei_config.dart';
+import 'package:mtei/ui/core/ui_config.dart';
 import 'package:mtei/ui/core/styles.dart';
 import 'package:mtei/ui/screens/sign_up/widgets/basic_info_form.dart';
 
@@ -33,7 +33,7 @@ class SignUpPage extends StatelessWidget {
                         width: 32.0,
                       ),
                       Text(
-                        mtei.app_name,
+                        UIConfig.app_name,
                         style: kHeadingTextStyle.copyWith(
                             color: KAppPurple, fontWeight: FontWeight.w600),
                       ),

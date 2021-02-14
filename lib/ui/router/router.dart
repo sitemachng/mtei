@@ -8,6 +8,13 @@ import 'package:mtei/ui/screens/sign_up/sign_up_page.dart';
 import 'package:mtei/ui/screens/sign_up/sign_up_page_phone.dart';
 import 'package:mtei/ui/screens/sign_up/sign_up_page_otp.dart';
 import 'package:mtei/ui/screens/home/home_page.dart';
+import 'package:mtei/ui/screens/loan/loan_page.dart';
+import 'package:mtei/ui/screens/wallet/wallet_page.dart';
+import 'package:mtei/ui/screens/credit_report/credit_report_page.dart';
+import 'package:mtei/ui/screens/send_money/send_money_page.dart';
+import 'package:mtei/ui/screens/bill_payment/bill_payment_page.dart';
+import 'package:mtei/ui/screens/manage_cards/manage_cards_page.dart';
+import 'package:mtei/ui/screens/notifications/notifications_page.dart';
 
 @MaterialAutoRouter(
   routes: <AutoRoute>[
@@ -18,7 +25,15 @@ import 'package:mtei/ui/screens/home/home_page.dart';
     CustomRoute(page: SignUpPagePhone, transitionsBuilder: TransitionsBuilders.fadeIn),
     CustomRoute(page: SignUpPageOTP, transitionsBuilder: TransitionsBuilders.fadeIn),
     CustomRoute(page: SignUpPagePincode, transitionsBuilder: TransitionsBuilders.fadeIn),
+    // inner app
     CustomRoute(page: HomePage, transitionsBuilder: TransitionsBuilders.fadeIn),
+    CustomRoute(page: LoanPage, transitionsBuilder: TransitionsBuilders.fadeIn),
+    CustomRoute(page: WalletPage, transitionsBuilder: TransitionsBuilders.fadeIn),
+    CustomRoute(page: CreditReportPage, transitionsBuilder: TransitionsBuilders.fadeIn),
+    CustomRoute(page: SendMoneyPage, transitionsBuilder: TransitionsBuilders.fadeIn),
+    CustomRoute(page: BillPaymentPage, transitionsBuilder: TransitionsBuilders.fadeIn),
+    CustomRoute(page: ManageCardsPage, transitionsBuilder: TransitionsBuilders.fadeIn),
+    CustomRoute(page: NotificationsPage, transitionsBuilder: TransitionsBuilders.fadeIn),
   ],
 )
 class $AppRouter {}

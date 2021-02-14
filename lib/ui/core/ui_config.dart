@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class mtei {
+class UIConfig {
   static const String app_name = "Mtei";
   static const int app_version_code = 1;
   
