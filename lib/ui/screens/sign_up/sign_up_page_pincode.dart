@@ -64,7 +64,7 @@ class SignUpPagePincode extends StatelessWidget {
                 ),
                 SizedBox(height: 40.0),
                 Expanded(
-                  child: BvnForm(),
+                  child: BvnForm(email: this.email, phone: this.phone, address: this.address, password: this.password, lastName: this.lastName, firstName: this.firstName,),
                 ),
               ],
             ),

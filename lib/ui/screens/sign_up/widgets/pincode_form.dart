@@ -1,10 +1,13 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mtei/providers/user_provider.dart';
+import 'package:mtei/ui/core/loader.dart';
 import 'package:mtei/ui/core/styles.dart';
 import 'package:mtei/ui/screens/intro/widgets/indicator.dart';
 import 'package:mtei/ui/router/router.gr.dart';
 import 'package:mtei/ui/screens/sign_in/widgets/custom_input.dart';
+import 'package:provider/provider.dart';
 
 class BvnForm extends StatefulWidget {
   final String firstName;
@@ -23,6 +26,8 @@ class _BvnFormState extends State<BvnForm> {
 
   final _formKey = GlobalKey<FormState>();
   final TextEditingController bvnController = TextEditingController();
+  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final _dialogRegisterFinalKeyLoader = new GlobalKey<State>();
 
   @override
   void dispose() {
@@ -32,6 +37,7 @@ class _BvnFormState extends State<BvnForm> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final UserProvider userProvider = Provider.of<UserProvider>(context);
 
     return Form(
       autovalidate: false,
@@ -80,9 +86,38 @@ class _BvnFormState extends State<BvnForm> {
                 child: RaisedButton(
                   color: KAppPurple,
                   child: Text('Complete Signup', style: kSolidButtonTextStyle),
-                  onPressed: () {
+                  onPressed: () async {
                     if(_formKey.currentState.validate()){
-                      ExtendedNavigator.root.push(Routes.homePage);
+                      // print(widget.firstName);
+                      // print(widget.lastName);
+                      // print(userProvider.gender);
+                      // print(userProvider.date);
+                      // print(widget.address);
+                      // print(widget.email);
+                      // print(widget.password);
+                      // print(widget.phone);
+                      // print(bvnController.text);
+                      Dialogs.showLoadingDialog(context, key: _dialogRegisterFinalKeyLoader);
+                      await userProvider.signUp(
+                          firstName: widget.firstName,
+                          lastName: widget.lastName,
+                          gender: userProvider.gender,
+                          dob: userProvider.date,
+                          address: widget.address,
+                          email: widget.email,
+                          password: widget.password,
+                          countryName: '',
+                          stateName: 'null',
+                          phoneNumber: widget.phone,
+                          bvn: bvnController.text
+                      ).then((value) {
+                        if(value == true){
+                          Navigator.of(context).pop();
+                          ExtendedNavigator.root.push(Routes.homePage);
+                        } else {
+                          // cannot signup
+                        }
+                      });
                     }
                   },
                 ),

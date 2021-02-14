@@ -43,8 +43,8 @@ class UserProvider extends ChangeNotifier {
     @required String address,
     String email,
     String password,
-    String countryName = 'Nigeria',
-    String stateName = 'Kwara State',
+    String countryName,
+    String stateName,
     dynamic phoneNumber,
     String bvn
   }) async {
@@ -63,8 +63,8 @@ class UserProvider extends ChangeNotifier {
             "password": password,
             "phone": phoneNumber,
             "bvn": bvn,
-            "country": countryName,
-            "state": stateName,
+            "country": "Nigeria",
+            "state": "Kwara State",
             "gender": gender,
             "dateofbirth": dob,
             "address": address

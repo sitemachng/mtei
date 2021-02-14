@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mtei/providers/intro_guide_provider.dart';
 import 'package:mtei/providers/navigation_provider.dart';
+import 'package:mtei/providers/user_provider.dart';
 import 'package:mtei/ui/core/app_widget.dart';
 import 'package:provider/provider.dart';
 
@@ -11,6 +12,7 @@ void main() async {
       providers: [        
         ChangeNotifierProvider.value(value: IntroGuideProvider.initialize()),
         ChangeNotifierProvider.value(value: NavigationProvider.initialize()),
+        ChangeNotifierProvider.value(value: UserProvider()),
       ],
       child: Builder(
         builder: (context) {
