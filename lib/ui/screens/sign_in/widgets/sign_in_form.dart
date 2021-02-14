@@ -1,16 +1,30 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:mtei/providers/user_provider.dart';
+import 'package:mtei/ui/core/loader.dart';
 import 'package:mtei/ui/core/styles.dart';
 import 'package:mtei/ui/router/router.gr.dart';
 import 'package:mtei/ui/screens/sign_in/widgets/custom_input.dart';
+import 'package:provider/provider.dart';
 
 class SignInForm extends StatelessWidget {
   final GlobalKey<State> _keyLoader = new GlobalKey<State>();
+  TextEditingController _emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+  final _dialogSignInKeyLoader = new GlobalKey<State>();
+  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
+
+
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final UserProvider userProvider = Provider.of<UserProvider>(context);
+
     return Form(
+      key: _formKey,
       autovalidate: false,
       child: SingleChildScrollView(
         child: Column(
@@ -20,28 +34,38 @@ class SignInForm extends StatelessWidget {
               height: 20.0,
             ),
             CustomInput(
-              labelText: 'Phone Number',
-              hintText: 'Enter phone number',
-              errorText: 'Enter Phone number',
+              labelText: 'Email',
+              hintText: 'Enter your email',
+              errorText: 'Enter valid email',
               obscureText: false,
-              inputType: TextInputType.phone,
-              iconType: Icons.phone,
-              // validator: (value){
-              //   if(isEmptyValue(value)) return 'Enter Phone number';
-              // },
+              inputType: TextInputType.emailAddress,
+              iconType: Icons.email,
+              controller: _emailController,
+              validator: (value){
+                Pattern pattern =
+                    r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+                RegExp myReg = new RegExp(pattern);
+                if (value.trim().isEmpty) return 'Email cant be empty';
+                if (value.trim().length < 5) return 'Email cannot be less than 5 alphabet';
+                if (!myReg.hasMatch(value)) return 'Invalid email address';
+                return null;
+              },
             ),
             SizedBox(
               height: 20.0,
             ),
             CustomInput(
-              labelText: 'Pin',
-              hintText: 'Enter PIN',
-              errorText: 'Enter PIN',
+              labelText: 'Password',
+              hintText: 'Enter password',
+              errorText: 'Enter password',
               obscureText: true,
-              inputType: TextInputType.number,
-              iconType: Icons.lock,
+              inputType: TextInputType.text,
+              iconType: Icons.lock_outline_rounded,
+              controller: passwordController,
               validator: (value){
-                
+                if (value.trim().isEmpty) return 'Password cannot be empty';
+                if (value.trim().length < 5) return 'Password cannot be less than 5 characters';
+                return null;
               },
             ),
             SizedBox(
@@ -67,8 +91,42 @@ class SignInForm extends StatelessWidget {
               child: RaisedButton(
                 color: KAppPurple,
                 child: Text('Sign in', style: kSolidButtonTextStyle),
-                onPressed: () {
-                  ExtendedNavigator.of(context).push(Routes.homePage);
+                onPressed: () async {
+                  Dialogs.showLoadingDialog(context, key: _dialogSignInKeyLoader);
+                  if(_formKey.currentState.validate()) {
+                    await userProvider.sinIn(
+                        email: _emailController.text,
+                        password: passwordController.text
+                    ).then((value) {
+                      if(value != false && value != null){
+                        Navigator.of(context).pop();
+                        if(value['success'] == 'false'){
+                          _scaffoldKey.currentState.showSnackBar(
+                              SnackBar(
+                                content: Text(value['error'] ?? 'Error'),
+                              )
+                          );
+                        } else {
+                          ExtendedNavigator.of(context).push(Routes.homePage);
+                        }
+                      } else {
+                        Navigator.of(context).pop();
+                        _scaffoldKey.currentState.showSnackBar(
+                            SnackBar(
+                              content: Text('Error login in, please try again later'),
+                            )
+                        );
+                        // cannot signin
+                      }
+                      // if(value == true){
+                      //   Navigator.of(context).pop();
+                      //   ExtendedNavigator.of(context).push(Routes.homePage);
+                      // } else {
+                      //
+                      //   // cannot signup
+                      // }
+                    });
+                  }
                 },
               ),
             ),
