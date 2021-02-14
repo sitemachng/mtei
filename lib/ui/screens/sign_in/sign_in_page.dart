@@ -4,9 +4,12 @@ import 'package:mtei/ui/core/styles.dart';
 import 'package:mtei/ui/screens/sign_in/widgets/sign_in_form.dart';
 
 class SignInPage extends StatelessWidget {
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       body: SafeArea(
         child: Center(
           child: Container(
@@ -49,7 +52,7 @@ class SignInPage extends StatelessWidget {
                 ),
                 SizedBox(height: 40.0),
                 Expanded(
-                  child: SignInForm(),
+                  child: SignInForm(scaffoldKey: _scaffoldKey,),
                 ),
               ],
             ),

@@ -8,12 +8,14 @@ import 'package:mtei/ui/screens/sign_in/widgets/custom_input.dart';
 import 'package:provider/provider.dart';
 
 class SignInForm extends StatelessWidget {
+  final scaffoldKey;
+  SignInForm({this.scaffoldKey});
   final GlobalKey<State> _keyLoader = new GlobalKey<State>();
   TextEditingController _emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   final _dialogSignInKeyLoader = new GlobalKey<State>();
-  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  // GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 
 
@@ -101,7 +103,7 @@ class SignInForm extends StatelessWidget {
                       if(value != false && value != null){
                         Navigator.of(context).pop();
                         if(value['success'] == 'false'){
-                          _scaffoldKey.currentState.showSnackBar(
+                          scaffoldKey.currentState.showSnackBar(
                               SnackBar(
                                 content: Text(value['error'] ?? 'Error'),
                               )
@@ -111,7 +113,7 @@ class SignInForm extends StatelessWidget {
                         }
                       } else {
                         Navigator.of(context).pop();
-                        _scaffoldKey.currentState.showSnackBar(
+                        scaffoldKey.currentState.showSnackBar(
                             SnackBar(
                               content: Text('Error login in, please try again later'),
                             )
