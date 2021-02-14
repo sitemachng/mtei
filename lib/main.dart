@@ -8,7 +8,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MultiProvider(
-      providers: [        
+      providers: [
         ChangeNotifierProvider.value(value: IntroGuideProvider.initialize()),
         ChangeNotifierProvider.value(value: NavigationProvider.initialize()),
       ],
@@ -18,5 +18,5 @@ void main() async {
         },
       ),
     ),
-  ); 
+  );
 }

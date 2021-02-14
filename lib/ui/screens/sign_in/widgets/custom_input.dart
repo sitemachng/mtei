@@ -75,20 +75,20 @@ class _CustomInputState extends State<CustomInput> {
       validator: widget.validator,
       onSaved: widget.onSaved,
       onChanged: widget.onChanged,
-      cursorColor: KAppPurple,
+      cursorColor: kPrimaryColor,
       style: kControlTextStyle,
       decoration: InputDecoration(
         prefixIcon: Container(
           margin: EdgeInsets.all(8.0),
           decoration: BoxDecoration(
-            color: KAppPurple,
+            color: kPrimaryColor,
             gradient: LinearGradient(
               begin: Alignment.topRight,
               end: Alignment.bottomLeft,
               stops: [0.1, 0.5],
               colors: [
                 Color.fromRGBO(60, 16, 83, 0.6),
-                KAppPurple,
+                kPrimaryColor,
               ],
             ),
             borderRadius: BorderRadius.circular(50.0),
@@ -107,12 +107,12 @@ class _CustomInputState extends State<CustomInput> {
                     borderRadius: BorderRadius.circular(50.0),
                     border: Border.all(
                       width: 1.0,
-                      color: KAppPurple,
+                      color: kPrimaryColor,
                     )),
                 child: Icon(
                   Icons.check,
                   size: 16.0,
-                  color: KAppPurple,
+                  color: kPrimaryColor,
                 ),
               )
             : null,

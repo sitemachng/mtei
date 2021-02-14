@@ -16,7 +16,7 @@ class SignInPage extends StatelessWidget {
             ),
             decoration: BoxDecoration(
                 border: Border(
-                  top: BorderSide(width: 4.0, color: KAppPurple),
+                  top: BorderSide(width: 4.0, color: kPrimaryColor),
                 ),
                 color: Colors.white),
             child: Column(
@@ -35,7 +35,7 @@ class SignInPage extends StatelessWidget {
                       Text(
                         UIConfig.app_name,
                         style: kHeadingTextStyle.copyWith(
-                            color: KAppPurple, fontWeight: FontWeight.w600),
+                            color: kPrimaryColor, fontWeight: FontWeight.w600),
                       ),
                     ],
                   ),

@@ -1,6 +1,6 @@
 class IntroGuide {
   String title;
-  String description; 
+  String description;
 
   IntroGuide({this.title, this.description});
 

@@ -14,14 +14,48 @@ class DrawerMenu {
 
   initialize() {
     _menuList = <DrawerMenu>[
-      DrawerMenu(menuRoute: Routes.homePage, menuName: 'Home', menuIcon: Icons.home, isBodyView: true,),
-      DrawerMenu(menuRoute: Routes.loanPage, menuName: 'Apply For Loan', menuIcon: Icons.home, isBodyView: false,),
-      DrawerMenu(menuRoute: Routes.walletPage, menuName: 'Wallet', menuIcon: Icons.payment, isBodyView: false,),
-      DrawerMenu(menuRoute: Routes.creditReportPage, menuName: 'Free Credit Report', menuIcon: Icons.bar_chart, isBodyView: false,),
-      DrawerMenu(menuRoute: Routes.sendMoneyPage, menuName: 'Send Money', menuIcon: Icons.attach_money, isBodyView: false,),
-      DrawerMenu(menuRoute: Routes.billPaymentPage, menuName: 'Bill Payment', menuIcon: Icons.payment, isBodyView: false,),
-      DrawerMenu(menuRoute: Routes.manageCardsPage, menuName: 'Manage Card', menuIcon: Icons.card_giftcard, isBodyView: false,),
-      DrawerMenu(menuRoute: Routes.notificationsPage, menuName: 'Notifications', menuIcon: Icons.notification_important, isBodyView: false,)
+      DrawerMenu(
+        menuRoute: Routes.homePage,
+        menuName: 'Home',
+        menuIcon: Icons.home,
+        isBodyView: true,
+      ),
+      DrawerMenu(
+        menuRoute: Routes.loanPage,
+        menuName: 'Apply For Loan',
+        menuIcon: Icons.money,
+        isBodyView: false,
+      ),
+      DrawerMenu(
+        menuRoute: Routes.creditReportPage,
+        menuName: 'Free Credit Report',
+        menuIcon: Icons.bar_chart,
+        isBodyView: false,
+      ),
+      DrawerMenu(
+        menuRoute: Routes.sendMoneyPage,
+        menuName: 'Send Money',
+        menuIcon: Icons.attach_money,
+        isBodyView: false,
+      ),
+      DrawerMenu(
+        menuRoute: Routes.billPaymentPage,
+        menuName: 'Bill Payment',
+        menuIcon: Icons.payment,
+        isBodyView: false,
+      ),
+      DrawerMenu(
+        menuRoute: Routes.manageCardsPage,
+        menuName: 'Manage Card',
+        menuIcon: Icons.card_giftcard,
+        isBodyView: false,
+      ),
+      DrawerMenu(
+        menuRoute: Routes.notificationsPage,
+        menuName: 'Notifications',
+        menuIcon: Icons.notification_important,
+        isBodyView: false,
+      )
     ];
   }
 }

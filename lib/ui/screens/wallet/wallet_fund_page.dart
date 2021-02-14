@@ -3,13 +3,13 @@ import 'package:mtei/ui/core/app_scaffold.dart';
 import 'package:mtei/ui/core/app_drawer.dart';
 import 'package:mtei/ui/core/app_title.dart';
 
-class NotificationsPage extends StatefulWidget {
-  final String title = 'Notifications';
+class WalletFundPage extends StatefulWidget {
+  final String title = 'Fund Wallet';
   @override
-  _NotificationsPageState createState() => _NotificationsPageState();
+  _WalletFundPageState createState() => _WalletFundPageState();
 }
 
-class _NotificationsPageState extends State<NotificationsPage> {
+class _WalletFundPageState extends State<WalletFundPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(

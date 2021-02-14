@@ -41,9 +41,7 @@ class _BasicInfoFormState extends State<BasicInfoForm> {
                 obscureText: false,
                 inputType: TextInputType.name,
                 iconType: Icons.person,
-                validator: (value){
-                  
-                },
+                validator: (value) {},
               ),
               SizedBox(
                 height: 20.0,
@@ -55,9 +53,7 @@ class _BasicInfoFormState extends State<BasicInfoForm> {
                 obscureText: false,
                 inputType: TextInputType.name,
                 iconType: Icons.person,
-                validator: (value){
-                  
-                },
+                validator: (value) {},
               ),
               SizedBox(
                 height: 10.0,
@@ -77,9 +73,7 @@ class _BasicInfoFormState extends State<BasicInfoForm> {
                 obscureText: false,
                 inputType: TextInputType.emailAddress,
                 iconType: Icons.email,
-                validator: (value){
-                  
-                },
+                validator: (value) {},
               ),
               SizedBox(
                 height: 10.0,
@@ -107,7 +101,7 @@ class _BasicInfoFormState extends State<BasicInfoForm> {
               ButtonTheme(
                 minWidth: MediaQuery.of(context).size.width,
                 child: RaisedButton(
-                  color: KAppPurple,
+                  color: kPrimaryColor,
                   child: Text('Continue', style: kSolidButtonTextStyle),
                   onPressed: () {
                     if (_formKey.currentState.validate()) {

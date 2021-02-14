@@ -18,7 +18,7 @@ class WelcomePage extends StatelessWidget {
           constraints: BoxConstraints.expand(),
           decoration: BoxDecoration(
               border: Border(
-                top: BorderSide(width: 4.0, color: KAppPurple),
+                top: BorderSide(width: 4.0, color: kPrimaryColor),
               ),
               color: Colors.white),
           child: Column(
@@ -37,7 +37,7 @@ class WelcomePage extends StatelessWidget {
                     Text(
                       UIConfig.app_name,
                       style: kHeadingTextStyle.copyWith(
-                          color: KAppPurple, fontWeight: FontWeight.bold),
+                          color: kPrimaryColor, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -47,7 +47,7 @@ class WelcomePage extends StatelessWidget {
                 style: kHeadingTextStyle.copyWith(
                   fontWeight: FontWeight.w600,
                   fontSize: 25.0,
-                  color: KAppPurple,
+                  color: kPrimaryColor,
                 ),
               ),
               Expanded(
@@ -59,9 +59,9 @@ class WelcomePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   RaisedButton(
-                    color: KAppPurple,
+                    color: kPrimaryColor,
                     child: Text('Register', style: kSolidButtonTextStyle),
-                    onPressed: () {                      
+                    onPressed: () {
                       ExtendedNavigator.root.push(Routes.signUpPage);
                     },
                   ),
@@ -71,7 +71,7 @@ class WelcomePage extends StatelessWidget {
                   Text(
                     'I already have a mtei account',
                     style: kBodyTextStyle.copyWith(
-                      color: KAppPurple,
+                      color: kPrimaryColor,
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -79,9 +79,9 @@ class WelcomePage extends StatelessWidget {
                     height: MediaQuery.of(context).size.height / 100.0,
                   ),
                   OutlineButton(
-                    color: KAppPurple,
+                    color: kPrimaryColor,
                     child: Text('Sign in', style: kOutlineButtonTextStyle),
-                    borderSide: BorderSide(color: KAppPurple),
+                    borderSide: BorderSide(color: kPrimaryColor),
                     onPressed: () {
                       ExtendedNavigator.of(context).push(Routes.signInPage);
                     },

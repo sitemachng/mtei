@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class UIConfig {
   static const String app_name = "Mtei";
   static const int app_version_code = 1;
-  
+
   //* Images
   static List<AssetImage> introImages = [
     AssetImage("assets/images/slide1.jpg"),

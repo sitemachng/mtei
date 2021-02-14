@@ -11,7 +11,6 @@ class OTPForm extends StatefulWidget {
 }
 
 class _OTPFormState extends State<OTPForm> {
-
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -42,11 +41,8 @@ class _OTPFormState extends State<OTPForm> {
                 obscureText: false,
                 inputType: TextInputType.phone,
                 iconType: Icons.textsms,
-                validator: (value){
-                  
-                },
+                validator: (value) {},
               ),
-
               SizedBox(
                 height: 20.0,
               ),
@@ -56,7 +52,7 @@ class _OTPFormState extends State<OTPForm> {
                   style: kHeadingTextStyle.copyWith(
                     fontWeight: FontWeight.w600,
                     fontSize: 12.0,
-                    color: KAppPurple,
+                    color: kPrimaryColor,
                   ),
                   textAlign: TextAlign.start,
                 ),
@@ -80,10 +76,10 @@ class _OTPFormState extends State<OTPForm> {
               ButtonTheme(
                 minWidth: MediaQuery.of(context).size.width,
                 child: RaisedButton(
-                  color: KAppPurple,
+                  color: kPrimaryColor,
                   child: Text('Continue', style: kSolidButtonTextStyle),
                   onPressed: () {
-                    if(_formKey.currentState.validate()){
+                    if (_formKey.currentState.validate()) {
                       ExtendedNavigator.root.push(Routes.signUpPagePincode);
                     }
                   },

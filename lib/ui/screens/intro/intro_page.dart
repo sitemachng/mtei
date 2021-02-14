@@ -62,53 +62,52 @@ class _IntroPageState extends State<IntroPage> {
 
   @override
   Widget build(BuildContext context) {
-    
     final introGuide = Provider.of<IntroGuideProvider>(context);
-    
+
     TransformerPageView transformerPageView = TransformerPageView(
-      pageSnapping: true,
-      onPageChanged: (index) {
-        introGuide.currentIndex = index;
-      },
-      loop: true,
-      controller: controller,
-      transformer: PageTransformerBuilder(
-        builder: (Widget child, TransformInfo info) {
-          return Container(
-            alignment: Alignment.center,
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 30.0, horizontal: 18.0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(height: 20.0),
-                  Expanded(
-                    flex: 1,
-                    child: Column(
-                      children: <Widget>[
-                        Text(
-                          introGuide.guideList[introGuide.currentIndex].title,
-                          textAlign: TextAlign.center,
-                          style: kTitleTextStyle.copyWith(color: KAppPurple),
-                        ),
-                        SizedBox(height: 20.0),
-                        Text(
-                          introGuide.guideList[introGuide.currentIndex].description,
-                          textAlign: TextAlign.center,
-                          style: kBodyTextStyle,
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
+        pageSnapping: true,
+        onPageChanged: (index) {
+          introGuide.currentIndex = index;
         },
-      ),
-      itemCount: introGuide.guideList.length
-    );
+        loop: true,
+        controller: controller,
+        transformer: PageTransformerBuilder(
+          builder: (Widget child, TransformInfo info) {
+            return Container(
+              alignment: Alignment.center,
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 30.0, horizontal: 18.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    SizedBox(height: 20.0),
+                    Expanded(
+                      flex: 1,
+                      child: Column(
+                        children: <Widget>[
+                          Text(
+                            introGuide.guideList[introGuide.currentIndex].title,
+                            textAlign: TextAlign.center,
+                            style: kTitleTextStyle.copyWith(color: kPrimaryColor),
+                          ),
+                          SizedBox(height: 20.0),
+                          Text(
+                            introGuide
+                                .guideList[introGuide.currentIndex].description,
+                            textAlign: TextAlign.center,
+                            style: kBodyTextStyle,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            );
+          },
+        ),
+        itemCount: introGuide.guideList.length);
 
     return Scaffold(
       body: SafeArea(
@@ -117,7 +116,7 @@ class _IntroPageState extends State<IntroPage> {
             constraints: BoxConstraints.expand(),
             decoration: BoxDecoration(
               border: Border(
-                top: BorderSide(width: 4.0, color: KAppPurple),
+                top: BorderSide(width: 4.0, color: kPrimaryColor),
               ),
             ),
             padding: EdgeInsets.all(10.0),
@@ -150,10 +149,10 @@ class _IntroPageState extends State<IntroPage> {
                               children: [
                                 Expanded(
                                   child: OutlineButton(
-                                    color: KAppPurple,
+                                    color: kPrimaryColor,
                                     child: Text('Skip',
                                         style: kOutlineButtonTextStyle),
-                                    borderSide: BorderSide(color: KAppPurple),
+                                    borderSide: BorderSide(color: kPrimaryColor),
                                     onPressed: () {
                                       ExtendedNavigator.of(context)
                                           .popAndPush(Routes.welcomePage);
@@ -167,7 +166,7 @@ class _IntroPageState extends State<IntroPage> {
                                   child: introGuide.currentIndex <
                                           introGuide.guideList.length - 1
                                       ? RaisedButton(
-                                          color: KAppPurple,
+                                          color: kPrimaryColor,
                                           child: Text('Next',
                                               style: kSolidButtonTextStyle),
                                           onPressed: () {
@@ -175,19 +174,24 @@ class _IntroPageState extends State<IntroPage> {
                                               () {
                                                 introGuide.currentIndex =
                                                     introGuide.currentIndex <
-                                                           introGuide.guideList.length - 1
-                                                        ? (introGuide.currentIndex + 1)
+                                                            introGuide.guideList
+                                                                    .length -
+                                                                1
+                                                        ? (introGuide
+                                                                .currentIndex +
+                                                            1)
                                                         : 0;
                                               },
                                             );
                                           },
                                         )
                                       : RaisedButton(
-                                          color: KAppPurple,
+                                          color: kPrimaryColor,
                                           child: Text('Get Started',
                                               style: kSolidButtonTextStyle),
                                           onPressed: () {
-                                            ExtendedNavigator.root.popAndPush(Routes.welcomePage);
+                                            ExtendedNavigator.root
+                                                .popAndPush(Routes.welcomePage);
                                           },
                                         ),
                                 ),
@@ -208,4 +212,3 @@ class _IntroPageState extends State<IntroPage> {
     );
   }
 }
-

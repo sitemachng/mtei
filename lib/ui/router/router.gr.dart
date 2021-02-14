@@ -23,7 +23,10 @@ import '../screens/sign_up/sign_up_page.dart';
 import '../screens/sign_up/sign_up_page_otp.dart';
 import '../screens/sign_up/sign_up_page_phone.dart';
 import '../screens/sign_up/sign_up_page_pincode.dart';
+import '../screens/wallet/wallet_fund_page.dart';
 import '../screens/wallet/wallet_page.dart';
+import '../screens/wallet/wallet_transaction_page.dart';
+import '../screens/wallet/wallet_withdraw_page.dart';
 import '../screens/welcome/welcome_page.dart';
 
 class Routes {
@@ -43,6 +46,9 @@ class Routes {
   static const String manageCardsPage = '/manage-cards-page';
   static const String notificationsPage = '/notifications-page';
   static const String profilePage = '/profile-page';
+  static const String walletWithdrawPage = '/wallet-withdraw-page';
+  static const String walletFundPage = '/wallet-fund-page';
+  static const String walletTransactionPage = '/wallet-transaction-page';
   static const all = <String>{
     introPage,
     welcomePage,
@@ -60,6 +66,9 @@ class Routes {
     manageCardsPage,
     notificationsPage,
     profilePage,
+    walletWithdrawPage,
+    walletFundPage,
+    walletTransactionPage,
   };
 }
 
@@ -83,6 +92,9 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.manageCardsPage, page: ManageCardsPage),
     RouteDef(Routes.notificationsPage, page: NotificationsPage),
     RouteDef(Routes.profilePage, page: ProfilePage),
+    RouteDef(Routes.walletWithdrawPage, page: WalletWithdrawPage),
+    RouteDef(Routes.walletFundPage, page: WalletFundPage),
+    RouteDef(Routes.walletTransactionPage, page: WalletTransactionPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -202,6 +214,30 @@ class AppRouter extends RouterBase {
     ProfilePage: (data) {
       return PageRouteBuilder<dynamic>(
         pageBuilder: (context, animation, secondaryAnimation) => ProfilePage(),
+        settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+      );
+    },
+    WalletWithdrawPage: (data) {
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            WalletWithdrawPage(),
+        settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+      );
+    },
+    WalletFundPage: (data) {
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            WalletFundPage(),
+        settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+      );
+    },
+    WalletTransactionPage: (data) {
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) =>
+            WalletTransactionPage(),
         settings: data,
         transitionsBuilder: TransitionsBuilders.fadeIn,
       );

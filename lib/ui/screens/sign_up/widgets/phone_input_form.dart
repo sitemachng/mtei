@@ -12,7 +12,6 @@ class PhoneInputForm extends StatefulWidget {
 }
 
 class _PhoneInputFormState extends State<PhoneInputForm> {
-
   final _formKey = GlobalKey<FormState>();
 
   final TextEditingController controller = TextEditingController();
@@ -102,10 +101,10 @@ class _PhoneInputFormState extends State<PhoneInputForm> {
               ButtonTheme(
                 minWidth: MediaQuery.of(context).size.width,
                 child: RaisedButton(
-                  color: KAppPurple,
+                  color: kPrimaryColor,
                   child: Text('Continue', style: kSolidButtonTextStyle),
                   onPressed: () {
-                    if(_formKey.currentState.validate()){
+                    if (_formKey.currentState.validate()) {
                       ExtendedNavigator.root.push(Routes.signUpPageOTP);
                     }
                   },

@@ -5,6 +5,7 @@ import 'package:mtei/ui/core/styles.dart';
 import 'package:provider/provider.dart';
 import 'package:mtei/ui/router/router.gr.dart';
 import 'package:auto_route/auto_route.dart';
+
 class AppDrawer extends StatefulWidget {
   @override
   _AppDrawerState createState() => _AppDrawerState();
@@ -16,9 +17,9 @@ class _AppDrawerState extends State<AppDrawer> {
   _navigateToScreen(BuildContext context, DrawerMenu activeMenu) {
     //close drawer
     Navigator.of(context).pop();
-      Provider.of<NavigationProvider>(context, listen: false).activeDrawerMenu =
-          activeMenu.menuRoute;
-      ExtendedNavigator.root.push('${activeMenu.menuRoute}'); 
+    Provider.of<NavigationProvider>(context, listen: false).activeDrawerMenu =
+        activeMenu.menuRoute;
+    ExtendedNavigator.root.push('${activeMenu.menuRoute}');
   }
 
   @override
@@ -40,7 +41,7 @@ class _AppDrawerState extends State<AppDrawer> {
             accountName: Text('Ahmed Olanrewaju'),
             accountEmail: Text('olanrewajuahmed095@yahoo.com'),
             decoration: BoxDecoration(
-              color: KAppPurple,
+              color: kPrimaryColor,
               image: DecorationImage(
                 fit: BoxFit.contain,
                 repeat: ImageRepeat.noRepeat,
@@ -76,28 +77,28 @@ class _AppDrawerState extends State<AppDrawer> {
               itemBuilder: (context, index) => Padding(
                 padding: EdgeInsets.all(0.0),
                 child: (navigationProvider.activeDrawerMenu != null &&
-                    navigationProvider.activeDrawerMenu ==
-                        drawer.menuList[index].menuRoute)
+                        navigationProvider.activeDrawerMenu ==
+                            drawer.menuList[index].menuRoute)
                     ? ListTile(
-                  title: Text(
-                    '${drawer.menuList[index].menuName}',
-                    style: TextStyle(color: kDeepYellow),
-                  ),
-                  leading: Icon(
-                    drawer.menuList[index].menuIcon,
-                    color: kDeepYellow,
-                  ),
-                  onTap: () =>
-                      _navigateToScreen(context, drawer.menuList[index]),
-                )
+                        title: Text(
+                          '${drawer.menuList[index].menuName}',
+                          style: TextStyle(color: kDeepYellow),
+                        ),
+                        leading: Icon(
+                          drawer.menuList[index].menuIcon,
+                          color: kDeepYellow,
+                        ),
+                        onTap: () =>
+                            _navigateToScreen(context, drawer.menuList[index]),
+                      )
                     : ListTile(
-                  title: Text(
-                    '${drawer.menuList[index].menuName}',
-                  ),
-                  leading: Icon(drawer.menuList[index].menuIcon),
-                  onTap: () =>
-                      _navigateToScreen(context, drawer.menuList[index]),
-                ),
+                        title: Text(
+                          '${drawer.menuList[index].menuName}',
+                        ),
+                        leading: Icon(drawer.menuList[index].menuIcon),
+                        onTap: () =>
+                            _navigateToScreen(context, drawer.menuList[index]),
+                      ),
               ),
             ),
           ),

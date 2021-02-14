@@ -11,7 +11,6 @@ class PincodeForm extends StatefulWidget {
 }
 
 class _PincodeFormState extends State<PincodeForm> {
-
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -42,9 +41,7 @@ class _PincodeFormState extends State<PincodeForm> {
                 obscureText: false,
                 inputType: TextInputType.name,
                 iconType: Icons.person,
-                validator: (value){
-                  
-                },
+                validator: (value) {},
               ),
               SizedBox(
                 height: 20.0,
@@ -64,10 +61,10 @@ class _PincodeFormState extends State<PincodeForm> {
               ButtonTheme(
                 minWidth: MediaQuery.of(context).size.width,
                 child: RaisedButton(
-                  color: KAppPurple,
+                  color: kPrimaryColor,
                   child: Text('Complete Signup', style: kSolidButtonTextStyle),
                   onPressed: () {
-                    if(_formKey.currentState.validate()){
+                    if (_formKey.currentState.validate()) {
                       ExtendedNavigator.root.push(Routes.homePage);
                     }
                   },

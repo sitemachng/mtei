@@ -12,7 +12,7 @@ class Indicator extends StatelessWidget {
       height: 5.0,
       margin: EdgeInsets.symmetric(horizontal: 3.0),
       decoration: BoxDecoration(
-        color: active ? KAppPurple : Color.fromRGBO(158, 158, 158, 0.52),
+        color: active ? kPrimaryColor : Color.fromRGBO(158, 158, 158, 0.52),
         borderRadius: BorderRadius.circular(10.0),
       ),
     );

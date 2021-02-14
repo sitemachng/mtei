@@ -10,7 +10,8 @@ class AppWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         FocusScopeNode currentFocus = FocusScope.of(context);
-        if (!currentFocus.hasPrimaryFocus && currentFocus.focusedChild != null) {
+        if (!currentFocus.hasPrimaryFocus &&
+            currentFocus.focusedChild != null) {
           FocusManager.instance.primaryFocus.unfocus();
         }
       },
@@ -19,12 +20,20 @@ class AppWidget extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         builder: ExtendedNavigator.builder<AppRouter>(router: AppRouter()),
         theme: ThemeData.light().copyWith(
-          primaryColor: KAppPurple,
+          primaryColor: kPrimaryColor,
           accentColor: kAppBlue,
-          backgroundColor: KAppPurple,
+          backgroundColor: kPrimaryColor,
           scaffoldBackgroundColor: Colors.white,
+          appBarTheme: AppBarTheme(
+            color: Colors.transparent,
+            elevation: 0,
+            iconTheme: IconThemeData(color: kPrimaryTextColor),
+            textTheme: TextTheme(headline6: kHeadingText2),
+            centerTitle: false,
+          ),
           floatingActionButtonTheme: FloatingActionButtonThemeData(
-            backgroundColor:  KAppPurple,
+            backgroundColor: Colors.white,
+            foregroundColor: kPrimaryColor
           ),
           inputDecorationTheme: InputDecorationTheme(
             border: OutlineInputBorder(

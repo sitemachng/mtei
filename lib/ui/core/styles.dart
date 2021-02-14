@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 //app Theme
-const KAppPurple = Colors.deepPurple;
+const kPrimaryColor = Color(0xFF4300c2); //Colors.deepPurple; //Color(0xFFff5722);// 
+const kSecondaryColor = Color(0xFF37079E);
+const kTenarycolor = Color(0xFFCAF0F8);
 const kAppBlue = Colors.lightBlueAccent;
 const kDeepYellow = Color(0xFFFFC100);
 
@@ -14,7 +16,7 @@ const kIndicatorColor = Color.fromRGBO(1, 32, 114, 0.3);
 // text colors
 const kPrimaryTextColor = Color(0xFF151515);
 const kSecondaryTextColor = Color(0xFF454545);
-const kSecondaryTextColorColor2 = Color(0XFF858585);
+const kTenaryTextColor = Color(0xFF929090);
 
 // edges
 const kPrimaryBorder = Color(0xFFC4C4C4);
@@ -90,36 +92,29 @@ const kHeadingTextStyle = TextStyle(
   fontSize: 30.0,
 );
 const kTitleTextStyle = TextStyle(
-  fontSize: 30.0,
-  fontFamily: 'Montserrat',
-  fontWeight: FontWeight.bold,
-  letterSpacing: 0.5
-);
-const kBodyTextStyle = TextStyle(
-    fontSize: 16.0,
+    fontSize: 30.0,
     fontFamily: 'Montserrat',
-    fontWeight: FontWeight.normal
-);
+    fontWeight: FontWeight.bold,
+    letterSpacing: 0.5);
+const kBodyTextStyle = TextStyle(
+    fontSize: 16.0, fontFamily: 'Montserrat', fontWeight: FontWeight.normal);
 const kBodyTextLinkStyle = TextStyle(
     fontSize: 16.0,
     fontFamily: 'Montserrat',
     fontWeight: FontWeight.bold,
-    color: Colors.black
-);
+    color: Colors.black);
 const kControlTextStyle = TextStyle(
   fontSize: 15.0,
 );
 
 //Buttons
 const kSolidButtonTextStyle = TextStyle(
-  fontFamily: 'Montserrat',
-  fontSize: 14.0,
-  color: Colors.white,
-  fontWeight: FontWeight.w600
-);
+    fontFamily: 'Montserrat',
+    fontSize: 14.0,
+    color: Colors.white,
+    fontWeight: FontWeight.w600);
 const kOutlineButtonTextStyle = TextStyle(
     fontFamily: 'Montserrat',
     fontSize: 14.0,
-    color: KAppPurple,
-    fontWeight: FontWeight.w600
-);
+    color: kPrimaryColor,
+    fontWeight: FontWeight.w600);

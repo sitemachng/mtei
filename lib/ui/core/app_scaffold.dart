@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mtei/ui/router/router.gr.dart';
+import 'package:mtei/ui/core/styles.dart';
 
 import 'app_title.dart';
 
@@ -18,15 +19,15 @@ class AppScaffold extends StatefulWidget {
 
   const AppScaffold(
       {Key key,
-        @required this.body,
-        @required this.title,
-        this.leading,
-        this.tabBar,
-        this.footer,
-        this.fab,
-        this.fabLocation,
-        this.drawer,
-        this.endDrawer})
+      @required this.body,
+      @required this.title,
+      this.leading,
+      this.tabBar,
+      this.footer,
+      this.fab,
+      this.fabLocation,
+      this.drawer,
+      this.endDrawer})
       : super(key: key);
 
   @override
@@ -47,21 +48,25 @@ class _AppScaffoldState extends State<AppScaffold> {
         child: Scaffold(
           key: _scaffoldKey,
           appBar: AppBar(
-            // backgroundColor: Colors.transparent,
-            elevation: defaultTargetPlatform == TargetPlatform.android ? 0.5 : 0.0,
+            backgroundColor: Colors.white,
+            elevation:
+                defaultTargetPlatform == TargetPlatform.android ? 5.0 : 0.0,
             centerTitle: true,
             bottom: widget.tabBar != null ? widget.tabBar : null,
-            title: widget.title != null ? widget.title : AppTitle(innerApp: true),
-            leading: widget.leading != null ? widget.leading : IconButton(
-              icon: Icon(
-                Icons.menu,
-                color: Colors.white,
-                size: 32,
-              ),
-              onPressed: (){
-                _scaffoldKey.currentState.openDrawer();
-              },
-            ),
+            title:
+                widget.title != null ? widget.title : AppTitle(innerApp: true),
+            leading: widget.leading != null
+                ? widget.leading
+                : IconButton(
+                    icon: Icon(
+                      Icons.menu,
+                      color: kPrimaryTextColor,
+                      size: 32,
+                    ),
+                    onPressed: () {
+                      _scaffoldKey.currentState.openDrawer();
+                    },
+                  ),
             actions: [
               InkResponse(
                 child: Container(
@@ -71,7 +76,7 @@ class _AppScaffoldState extends State<AppScaffold> {
                     size: 32,
                   ),
                 ),
-                onTap: (){
+                onTap: () {
                   ExtendedNavigator.root.popAndPush(Routes.notificationsPage);
                 },
               ),
@@ -102,7 +107,9 @@ class _AppScaffoldState extends State<AppScaffold> {
           drawer: widget.drawer != null ? widget.drawer : null,
           endDrawer: widget.endDrawer != null ? widget.endDrawer : null,
           bottomNavigationBar: widget.footer != null ? widget.footer : null,
-          floatingActionButtonLocation: widget.fabLocation != null ? widget.fabLocation : FloatingActionButtonLocation.endFloat ,
+          floatingActionButtonLocation: widget.fabLocation != null
+              ? widget.fabLocation
+              : FloatingActionButtonLocation.endFloat,
           floatingActionButton: widget.fab != null ? widget.fab : null,
         ),
       ),

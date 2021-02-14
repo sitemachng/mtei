@@ -40,9 +40,7 @@ class SignInForm extends StatelessWidget {
               obscureText: true,
               inputType: TextInputType.number,
               iconType: Icons.lock,
-              validator: (value){
-                
-              },
+              validator: (value) {},
             ),
             SizedBox(
               height: 10.0,
@@ -53,7 +51,7 @@ class SignInForm extends StatelessWidget {
                 style: kHeadingTextStyle.copyWith(
                   fontWeight: FontWeight.w600,
                   fontSize: 12.0,
-                  color: KAppPurple,
+                  color: kPrimaryColor,
                 ),
                 textAlign: TextAlign.start,
               ),
@@ -65,7 +63,7 @@ class SignInForm extends StatelessWidget {
             ButtonTheme(
               minWidth: size.width,
               child: RaisedButton(
-                color: KAppPurple,
+                color: kPrimaryColor,
                 child: Text('Sign in', style: kSolidButtonTextStyle),
                 onPressed: () {
                   ExtendedNavigator.of(context).push(Routes.homePage);
@@ -81,7 +79,7 @@ class SignInForm extends StatelessWidget {
                 style: kHeadingTextStyle.copyWith(
                   fontWeight: FontWeight.w600,
                   fontSize: 12.0,
-                  color: KAppPurple,
+                  color: kPrimaryColor,
                 ),
                 textAlign: TextAlign.start,
               ),
@@ -95,9 +93,7 @@ class SignInForm extends StatelessWidget {
             Text(
               'mtei is a service provided by Liberty Assured, a licensed regulated lender.',
               style: kBodyTextStyle.copyWith(
-                  fontSize: 14.0,
-                  color: Colors.black54
-              ),
+                  fontSize: 14.0, color: Colors.black54),
             ),
           ],
         ),

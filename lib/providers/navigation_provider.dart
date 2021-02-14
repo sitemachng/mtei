@@ -23,5 +23,4 @@ class NavigationProvider with ChangeNotifier {
     _activeDrawerMenu = routeName;
     notifyListeners();
   }
-
 }
