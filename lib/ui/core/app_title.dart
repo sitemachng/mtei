@@ -10,7 +10,7 @@ class AppTitle extends StatelessWidget {
       text: TextSpan(
         text: 'Mtei',
         style: innerApp
-            ? kHeadingText2.copyWith(color: KAppPurple)
+            ? kHeadingText2.copyWith(color: Colors.white)
             : kHeadingText1.copyWith(color: KAppPurple),
         children: <TextSpan>[
           TextSpan(

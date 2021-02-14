@@ -15,6 +15,7 @@ import 'package:mtei/ui/screens/send_money/send_money_page.dart';
 import 'package:mtei/ui/screens/bill_payment/bill_payment_page.dart';
 import 'package:mtei/ui/screens/manage_cards/manage_cards_page.dart';
 import 'package:mtei/ui/screens/notifications/notifications_page.dart';
+import 'package:mtei/ui/screens/profile/profile_page.dart';
 
 @MaterialAutoRouter(
   routes: <AutoRoute>[
@@ -34,6 +35,7 @@ import 'package:mtei/ui/screens/notifications/notifications_page.dart';
     CustomRoute(page: BillPaymentPage, transitionsBuilder: TransitionsBuilders.fadeIn),
     CustomRoute(page: ManageCardsPage, transitionsBuilder: TransitionsBuilders.fadeIn),
     CustomRoute(page: NotificationsPage, transitionsBuilder: TransitionsBuilders.fadeIn),
+    CustomRoute(page: ProfilePage, transitionsBuilder: TransitionsBuilders.fadeIn),
   ],
 )
 class $AppRouter {}

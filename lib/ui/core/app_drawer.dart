@@ -3,7 +3,8 @@ import 'package:mtei/models/drawer_menu_model.dart';
 import 'package:mtei/providers/navigation_provider.dart';
 import 'package:mtei/ui/core/styles.dart';
 import 'package:provider/provider.dart';
-
+import 'package:mtei/ui/router/router.gr.dart';
+import 'package:auto_route/auto_route.dart';
 class AppDrawer extends StatefulWidget {
   @override
   _AppDrawerState createState() => _AppDrawerState();
@@ -15,18 +16,13 @@ class _AppDrawerState extends State<AppDrawer> {
   _navigateToScreen(BuildContext context, DrawerMenu activeMenu) {
     //close drawer
     Navigator.of(context).pop();
-    if (activeMenu.isBodyView) {
       Provider.of<NavigationProvider>(context, listen: false).activeDrawerMenu =
           activeMenu.menuRoute;
-    } else {
-      Navigator.pushNamed(context, '${activeMenu.menuRoute}');
-    }
-
+      ExtendedNavigator.root.push('${activeMenu.menuRoute}'); 
   }
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     drawer.initialize();
   }
@@ -57,7 +53,8 @@ class _AppDrawerState extends State<AppDrawer> {
             ),
             currentAccountPicture: GestureDetector(
               onTap: () => () {
-                //  TODO: Navigate to profile setting
+                Navigator.of(context).pop();
+                ExtendedNavigator.root.push(Routes.profilePage);
               },
               child: CircleAvatar(
                 //TODO: use auth user profile image
@@ -65,7 +62,8 @@ class _AppDrawerState extends State<AppDrawer> {
               ),
             ),
             onDetailsPressed: () {
-              //  TODO: Implement press
+              Navigator.of(context).pop();
+              ExtendedNavigator.root.push(Routes.profilePage);
             },
           ),
           Expanded(

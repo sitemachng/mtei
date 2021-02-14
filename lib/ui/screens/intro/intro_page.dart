@@ -187,8 +187,7 @@ class _IntroPageState extends State<IntroPage> {
                                           child: Text('Get Started',
                                               style: kSolidButtonTextStyle),
                                           onPressed: () {
-                                            ExtendedNavigator.of(context)
-                                                .popAndPush(Routes.welcomePage);
+                                            ExtendedNavigator.root.popAndPush(Routes.welcomePage);
                                           },
                                         ),
                                 ),

@@ -17,7 +17,7 @@ class _ProfilePageState extends State<ProfilePage> {
   Widget build(BuildContext context) {
 
     return AppScaffold(
-        title: AppTitle(innerApp: true),
+        title: Text(widget.title),
         drawer: AppDrawer(),
         body: Center(
           child: Text(widget.title),

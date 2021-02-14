@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:mtei/ui/core/styles.dart';
-import 'package:mtei/ui/router/router.dart';
+import 'package:mtei/ui/core/ui_config.dart';
 import 'package:mtei/ui/router/router.gr.dart';
 
 class AppWidget extends StatelessWidget {
@@ -15,7 +15,7 @@ class AppWidget extends StatelessWidget {
         }
       },
       child: MaterialApp(
-        title: 'mtei',
+        title: UIConfig.app_name,
         debugShowCheckedModeBanner: false,
         builder: ExtendedNavigator.builder<AppRouter>(router: AppRouter()),
         theme: ThemeData.light().copyWith(

@@ -28,7 +28,9 @@ class _HomePageState extends State<HomePage> {
       child: AppScaffold(
         title: AppTitle(innerApp: true),
         drawer: AppDrawer(),
-        body: Container(),
+        body: Container(
+          
+        ),
         fab: FloatingActionButton(
           onPressed: () {
 

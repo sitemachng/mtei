@@ -16,6 +16,7 @@ import '../screens/intro/intro_page.dart';
 import '../screens/loan/loan_page.dart';
 import '../screens/manage_cards/manage_cards_page.dart';
 import '../screens/notifications/notifications_page.dart';
+import '../screens/profile/profile_page.dart';
 import '../screens/send_money/send_money_page.dart';
 import '../screens/sign_in/sign_in_page.dart';
 import '../screens/sign_up/sign_up_page.dart';
@@ -41,6 +42,7 @@ class Routes {
   static const String billPaymentPage = '/bill-payment-page';
   static const String manageCardsPage = '/manage-cards-page';
   static const String notificationsPage = '/notifications-page';
+  static const String profilePage = '/profile-page';
   static const all = <String>{
     introPage,
     welcomePage,
@@ -57,6 +59,7 @@ class Routes {
     billPaymentPage,
     manageCardsPage,
     notificationsPage,
+    profilePage,
   };
 }
 
@@ -79,6 +82,7 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.billPaymentPage, page: BillPaymentPage),
     RouteDef(Routes.manageCardsPage, page: ManageCardsPage),
     RouteDef(Routes.notificationsPage, page: NotificationsPage),
+    RouteDef(Routes.profilePage, page: ProfilePage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -191,6 +195,13 @@ class AppRouter extends RouterBase {
       return PageRouteBuilder<dynamic>(
         pageBuilder: (context, animation, secondaryAnimation) =>
             NotificationsPage(),
+        settings: data,
+        transitionsBuilder: TransitionsBuilders.fadeIn,
+      );
+    },
+    ProfilePage: (data) {
+      return PageRouteBuilder<dynamic>(
+        pageBuilder: (context, animation, secondaryAnimation) => ProfilePage(),
         settings: data,
         transitionsBuilder: TransitionsBuilders.fadeIn,
       );

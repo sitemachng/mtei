@@ -2,7 +2,6 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:mtei/ui/router/router.gr.dart';
-import 'package:provider/provider.dart';
 
 import 'app_title.dart';
 
@@ -48,15 +47,15 @@ class _AppScaffoldState extends State<AppScaffold> {
         child: Scaffold(
           key: _scaffoldKey,
           appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            elevation: defaultTargetPlatform == TargetPlatform.android ? 0.0 : 0.0,
+            // backgroundColor: Colors.transparent,
+            elevation: defaultTargetPlatform == TargetPlatform.android ? 0.5 : 0.0,
             centerTitle: true,
             bottom: widget.tabBar != null ? widget.tabBar : null,
             title: widget.title != null ? widget.title : AppTitle(innerApp: true),
             leading: widget.leading != null ? widget.leading : IconButton(
               icon: Icon(
                 Icons.menu,
-                color: Color(0xFF878787),
+                color: Colors.white,
                 size: 32,
               ),
               onPressed: (){
@@ -67,13 +66,13 @@ class _AppScaffoldState extends State<AppScaffold> {
               InkResponse(
                 child: Container(
                   child: Icon(
-                    Icons.search,
-                    color: Color(0xFF878787),
+                    Icons.notifications,
+                    color: Colors.white,
                     size: 32,
                   ),
                 ),
                 onTap: (){
-
+                  ExtendedNavigator.root.popAndPush(Routes.notificationsPage);
                 },
               ),
               SizedBox(
@@ -94,6 +93,7 @@ class _AppScaffoldState extends State<AppScaffold> {
                 ),
                 onTap: () {
                   _scaffoldKey.currentState.openDrawer();
+                  ExtendedNavigator.root.popAndPush(Routes.profilePage);
                 },
               )
             ],
