@@ -4,6 +4,10 @@ import 'package:mtei/ui/core/styles.dart';
 import 'package:mtei/ui/screens/sign_up/widgets/phone_input_form.dart';
 
 class SignUpPagePhone extends StatelessWidget {
+  final String firstName;
+  final String lastName;
+  final String email;
+  SignUpPagePhone({this.firstName, this.email, this.lastName});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,15 +45,22 @@ class SignUpPagePhone extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Your phone number is needed for us to be able to contact you!',
+                  'Create your mtei account!',
                   style: kHeadingTextStyle.copyWith(
                     fontWeight: FontWeight.w600,
                     fontSize: 16.0,
                   ),
                 ),
+                // Text(
+                //   'Your phone number is needed for us to be able to contact you!',
+                //   style: kHeadingTextStyle.copyWith(
+                //     fontWeight: FontWeight.w600,
+                //     fontSize: 16.0,
+                //   ),
+                // ),
                 SizedBox(height: 40.0),
                 Expanded(
-                  child: PhoneInputForm(),
+                  child: PhoneInputForm(email: email, firstName: firstName, lastName: lastName,),
                 ),
               ],
             ),

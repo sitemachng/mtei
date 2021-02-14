@@ -4,6 +4,14 @@ import 'package:mtei/ui/core/styles.dart';
 import 'package:mtei/ui/screens/sign_up/widgets/otp_form.dart';
 
 class SignUpPageOTP extends StatelessWidget {
+  final String firstName;
+  final String lastName;
+  final String email;
+  final String phone;
+  final String address;
+  final String password;
+  SignUpPageOTP({this.firstName, this.lastName, this.email, this.password, this.phone, this.address});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,7 +57,7 @@ class SignUpPageOTP extends StatelessWidget {
                 ),
                 SizedBox(height: 40.0),
                 Expanded(
-                  child: OTPForm(),
+                  child: OTPForm(email: email, phone: phone, address: address, password: password, lastName: lastName, firstName: firstName,),
                 ),
               ],
             ),

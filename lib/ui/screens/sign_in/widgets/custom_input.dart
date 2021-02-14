@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mtei/ui/core/styles.dart';
 
 class CustomInput extends StatefulWidget {
   CustomInput({
     this.labelText,
+    this.controller,
     this.hintText,
     this.iconType,
     this.inputType,
@@ -12,14 +14,18 @@ class CustomInput extends StatefulWidget {
     this.onSaved,
     this.onChanged,
     this.targetText,
+    this.inputFormatter,
     this.defaultText,
+
     this.errorText,
   });
 
   final IconData iconType;
+  final TextEditingController controller;
   final String labelText;
   final String hintText;
   final String targetText;
+  final List<TextInputFormatter> inputFormatter;
   final String defaultText;
   final String errorText;
   final TextInputType inputType;
@@ -33,22 +39,23 @@ class CustomInput extends StatefulWidget {
 }
 
 class _CustomInputState extends State<CustomInput> {
-  final _textController = TextEditingController();
+  // final _textController = widget.controller;
+  // final _textController = TextEditingController();
   bool _isValueValid = false;
 
   @override
   void initState() {
     super.initState();
-    _textController.addListener(_checkValid);
-    if (widget.defaultText?.isEmpty == false) {
-      _textController.text = widget.defaultText;
-    }
+    // _textController.addListener(_checkValid);
+    // if (widget.defaultText?.isEmpty == false) {
+    //   _textController.text = widget.defaultText;
+    // }
   }
 
   @override
   void dispose() {
     super.dispose();
-    _textController.dispose();
+    // _textController.dispose();
   }
 
   _checkValid() {
@@ -69,7 +76,7 @@ class _CustomInputState extends State<CustomInput> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: _textController,
+      controller: widget.controller,
       obscureText: widget.obscureText,
       keyboardType: widget.inputType,
       validator: widget.validator,
@@ -77,6 +84,8 @@ class _CustomInputState extends State<CustomInput> {
       onChanged: widget.onChanged,
       cursorColor: KAppPurple,
       style: kControlTextStyle,
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      inputFormatters: widget.inputFormatter,
       decoration: InputDecoration(
         prefixIcon: Container(
           margin: EdgeInsets.all(8.0),

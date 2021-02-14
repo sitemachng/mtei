@@ -1,11 +1,20 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mtei/ui/core/styles.dart';
 import 'package:mtei/ui/screens/intro/widgets/indicator.dart';
 import 'package:mtei/ui/router/router.gr.dart';
 import 'package:mtei/ui/screens/sign_in/widgets/custom_input.dart';
 
 class OTPForm extends StatefulWidget {
+  final String firstName;
+  final String lastName;
+  final String email;
+  final String phone;
+  final String address;
+  final String password;
+  OTPForm({this.firstName, this.lastName, this.email, this.password, this.phone, this.address});
+
   @override
   _OTPFormState createState() => _OTPFormState();
 }
@@ -13,6 +22,7 @@ class OTPForm extends StatefulWidget {
 class _OTPFormState extends State<OTPForm> {
 
   final _formKey = GlobalKey<FormState>();
+  TextEditingController otpController = TextEditingController();
 
   @override
   void dispose() {
@@ -40,11 +50,15 @@ class _OTPFormState extends State<OTPForm> {
                 hintText: 'Enter OTP',
                 errorText: 'Enter valid OTP',
                 obscureText: false,
-                inputType: TextInputType.phone,
+                inputType: TextInputType.number,
                 iconType: Icons.textsms,
                 validator: (value){
-                  
+                  if(value.toString().trim().isEmpty) return 'Otp cannot be empty';
+                  if(value.toString().length < 4) return 'Otp cannot be lesser than 4 digits';
+                  return null;
                 },
+                inputFormatter: [FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(4)],
+                controller: otpController,
               ),
 
               SizedBox(
@@ -84,7 +98,7 @@ class _OTPFormState extends State<OTPForm> {
                   child: Text('Continue', style: kSolidButtonTextStyle),
                   onPressed: () {
                     if(_formKey.currentState.validate()){
-                      ExtendedNavigator.root.push(Routes.signUpPagePincode);
+                      ExtendedNavigator.root.push(Routes.signUpPagePincode, arguments: SignUpPagePincodeArguments(firstName: widget.firstName, lastName: widget.lastName, password: widget.password, address: widget.address, phone: widget.phone, email: widget.email));
                     }
                   },
                 ),

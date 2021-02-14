@@ -115,25 +115,51 @@ class AppRouter extends RouterBase {
       );
     },
     SignUpPagePhone: (data) {
+      final args = data.getArgs<SignUpPagePhoneArguments>(
+        orElse: () => SignUpPagePhoneArguments(),
+      );
       return PageRouteBuilder<dynamic>(
         pageBuilder: (context, animation, secondaryAnimation) =>
-            SignUpPagePhone(),
+            SignUpPagePhone(
+          firstName: args.firstName,
+          email: args.email,
+          lastName: args.lastName,
+        ),
         settings: data,
         transitionsBuilder: TransitionsBuilders.fadeIn,
       );
     },
     SignUpPageOTP: (data) {
+      final args = data.getArgs<SignUpPageOTPArguments>(
+        orElse: () => SignUpPageOTPArguments(),
+      );
       return PageRouteBuilder<dynamic>(
-        pageBuilder: (context, animation, secondaryAnimation) =>
-            SignUpPageOTP(),
+        pageBuilder: (context, animation, secondaryAnimation) => SignUpPageOTP(
+          firstName: args.firstName,
+          lastName: args.lastName,
+          email: args.email,
+          password: args.password,
+          phone: args.phone,
+          address: args.address,
+        ),
         settings: data,
         transitionsBuilder: TransitionsBuilders.fadeIn,
       );
     },
     SignUpPagePincode: (data) {
+      final args = data.getArgs<SignUpPagePincodeArguments>(
+        orElse: () => SignUpPagePincodeArguments(),
+      );
       return PageRouteBuilder<dynamic>(
         pageBuilder: (context, animation, secondaryAnimation) =>
-            SignUpPagePincode(),
+            SignUpPagePincode(
+          firstName: args.firstName,
+          lastName: args.lastName,
+          email: args.email,
+          password: args.password,
+          phone: args.phone,
+          address: args.address,
+        ),
         settings: data,
         transitionsBuilder: TransitionsBuilders.fadeIn,
       );
@@ -207,4 +233,50 @@ class AppRouter extends RouterBase {
       );
     },
   };
+}
+
+/// ************************************************************************
+/// Arguments holder classes
+/// *************************************************************************
+
+/// SignUpPagePhone arguments holder class
+class SignUpPagePhoneArguments {
+  final String firstName;
+  final String email;
+  final String lastName;
+  SignUpPagePhoneArguments({this.firstName, this.email, this.lastName});
+}
+
+/// SignUpPageOTP arguments holder class
+class SignUpPageOTPArguments {
+  final String firstName;
+  final String lastName;
+  final String email;
+  final String password;
+  final String phone;
+  final String address;
+  SignUpPageOTPArguments(
+      {this.firstName,
+      this.lastName,
+      this.email,
+      this.password,
+      this.phone,
+      this.address});
+}
+
+/// SignUpPagePincode arguments holder class
+class SignUpPagePincodeArguments {
+  final String firstName;
+  final String lastName;
+  final String email;
+  final String password;
+  final String phone;
+  final String address;
+  SignUpPagePincodeArguments(
+      {this.firstName,
+      this.lastName,
+      this.email,
+      this.password,
+      this.phone,
+      this.address});
 }

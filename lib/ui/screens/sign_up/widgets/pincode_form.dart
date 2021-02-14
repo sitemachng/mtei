@@ -1,18 +1,28 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:mtei/ui/core/styles.dart';
 import 'package:mtei/ui/screens/intro/widgets/indicator.dart';
 import 'package:mtei/ui/router/router.gr.dart';
 import 'package:mtei/ui/screens/sign_in/widgets/custom_input.dart';
 
-class PincodeForm extends StatefulWidget {
+class BvnForm extends StatefulWidget {
+  final String firstName;
+  final String lastName;
+  final String email;
+  final String phone;
+  final String address;
+  final String password;
+  BvnForm({this.firstName, this.lastName, this.email, this.password, this.phone, this.address});
+
   @override
-  _PincodeFormState createState() => _PincodeFormState();
+  _BvnFormState createState() => _BvnFormState();
 }
 
-class _PincodeFormState extends State<PincodeForm> {
+class _BvnFormState extends State<BvnForm> {
 
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController bvnController = TextEditingController();
 
   @override
   void dispose() {
@@ -36,14 +46,18 @@ class _PincodeFormState extends State<PincodeForm> {
                 height: 20.0,
               ),
               CustomInput(
-                labelText: 'Pin code',
-                hintText: 'Enter your pin code to secure',
-                errorText: 'Enter First Name',
+                controller: bvnController,
+                labelText: 'BVN',
+                hintText: 'Enter your BVN details',
+                errorText: 'Enter your BVN details',
                 obscureText: false,
-                inputType: TextInputType.name,
+                inputType: TextInputType.number,
                 iconType: Icons.person,
+                inputFormatter: [FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(10)],
                 validator: (value){
-                  
+                  if(value.toString().isEmpty) return 'BVN is empty';
+                  if(value.toString().length < 10) return 'BVN cannot be less than 10 digit';
+                  return null;
                 },
               ),
               SizedBox(
