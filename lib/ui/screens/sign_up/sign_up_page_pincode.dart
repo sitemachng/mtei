@@ -4,6 +4,14 @@ import 'package:mtei/ui/core/styles.dart';
 import 'package:mtei/ui/screens/sign_up/widgets/pincode_form.dart';
 
 class SignUpPagePincode extends StatelessWidget {
+  final String firstName;
+  final String lastName;
+  final String email;
+  final String phone;
+  final String address;
+  final String password;
+  SignUpPagePincode({this.firstName, this.lastName, this.email, this.password, this.phone, this.address});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,8 +48,15 @@ class SignUpPagePincode extends StatelessWidget {
                     ],
                   ),
                 ),
+                // Text(
+                //   'Create a pin code to secure your account!',
+                //   style: kHeadingTextStyle.copyWith(
+                //     fontWeight: FontWeight.w600,
+                //     fontSize: 16.0,
+                //   ),
+                // ),
                 Text(
-                  'Create a pin code to secure your account!',
+                  'Create your mtei account!',
                   style: kHeadingTextStyle.copyWith(
                     fontWeight: FontWeight.w600,
                     fontSize: 16.0,
@@ -49,7 +64,7 @@ class SignUpPagePincode extends StatelessWidget {
                 ),
                 SizedBox(height: 40.0),
                 Expanded(
-                  child: PincodeForm(),
+                  child: BvnForm(email: this.email, phone: this.phone, address: this.address, password: this.password, lastName: this.lastName, firstName: this.firstName,),
                 ),
               ],
             ),

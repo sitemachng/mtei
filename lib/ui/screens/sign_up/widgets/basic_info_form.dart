@@ -12,6 +12,9 @@ class BasicInfoForm extends StatefulWidget {
 
 class _BasicInfoFormState extends State<BasicInfoForm> {
   final _formKey = GlobalKey<FormState>();
+  TextEditingController _firstNameController = TextEditingController();
+  TextEditingController _lastNameController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
 
   @override
   void dispose() {
@@ -41,7 +44,13 @@ class _BasicInfoFormState extends State<BasicInfoForm> {
                 obscureText: false,
                 inputType: TextInputType.name,
                 iconType: Icons.person,
-                validator: (value) {},
+                controller: _firstNameController,
+                validator: (value) {
+                  if (value.trim().isEmpty) return 'First name cannot be empty';
+                  if (value.trim().length < 3)
+                    return 'Name cannot be less than 3 characters';
+                  return null;
+                },
               ),
               SizedBox(
                 height: 20.0,
@@ -53,13 +62,19 @@ class _BasicInfoFormState extends State<BasicInfoForm> {
                 obscureText: false,
                 inputType: TextInputType.name,
                 iconType: Icons.person,
-                validator: (value) {},
+                controller: _lastNameController,
+                validator: (value) {
+                  if (value.trim().isEmpty) return 'last name cant be empty';
+                  if (value.trim().length < 3)
+                    return 'last name cannot be less than 3 characters';
+                  return null;
+                },
               ),
               SizedBox(
                 height: 10.0,
               ),
               Text(
-                '''We advise that you use your name as seen on your bank account details. This increase your chances of being approved for LeanSqr loan''',
+                '''We advise that you use your name as seen on your bank account details. This increase your chances of being approved for Mtei loan''',
                 style: kBodyTextStyle.copyWith(
                     fontSize: 12.0, color: Colors.black54),
               ),
@@ -73,7 +88,17 @@ class _BasicInfoFormState extends State<BasicInfoForm> {
                 obscureText: false,
                 inputType: TextInputType.emailAddress,
                 iconType: Icons.email,
-                validator: (value) {},
+                controller: _emailController,
+                validator: (value) {
+                  Pattern pattern =
+                      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+                  RegExp myReg = new RegExp(pattern);
+                  if (value.trim().isEmpty) return 'Email cant be empty';
+                  if (value.trim().length < 5)
+                    return 'Email cannot be less than 5 alphabet';
+                  if (!myReg.hasMatch(value)) return 'Invalid email address';
+                  return null;
+                },
               ),
               SizedBox(
                 height: 10.0,
@@ -105,7 +130,14 @@ class _BasicInfoFormState extends State<BasicInfoForm> {
                   child: Text('Continue', style: kSolidButtonTextStyle),
                   onPressed: () {
                     if (_formKey.currentState.validate()) {
-                      ExtendedNavigator.root.push(Routes.signUpPagePhone);
+                      ExtendedNavigator.root.push(
+                        Routes.signUpPagePhone,
+                        arguments: SignUpPagePhoneArguments(
+                          email: _emailController.text,
+                          firstName: _firstNameController.text,
+                          lastName: _lastNameController.text,
+                        ),
+                      );
                     }
                   },
                 ),
