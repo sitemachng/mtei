@@ -4,34 +4,36 @@ Modular Trade Economic Initiative (MTEI)
 
 ## Splash screen
 
-![Alt text](/screenshots/slide1.jpg?raw=true "Slide 1")
+![Alt text](/screenshots/slide1.jpeg?raw=true "Slide 1")
 
-![Alt text](/screenshots/slide2.jpg?raw=true "Slide 2")
+![Alt text](/screenshots/slide2.jpeg?raw=true "Slide 2")
 
-![Alt text](/screenshots/slide3.jpg?raw=true "Slide 3")
+![Alt text](/screenshots/slide3.jpeg?raw=true "Slide 3")
 
-![Alt text](/screenshots/slide4.jpg?raw=true "Slide 4")
+![Alt text](/screenshots/slide4.jpeg?raw=true "Slide 4")
 
 ## Welcome screen
 
-![Alt text](/screenshots/welcome.jpg?raw=true "Welcome")
+![Alt text](/screenshots/welcome.jpeg?raw=true "Welcome")
 
 ## Auth screen 
 
-![Alt text](/screenshots/signup1.jpg?raw=true "Signup - Basic info")
+![Alt text](/screenshots/signup1.jpeg?raw=true "Signup - Basic info")
 
-![Alt text](/screenshots/signup2.jpg?raw=true "Signup - Contact info")
+![Alt text](/screenshots/signup2.jpeg?raw=true "Signup - Contact info")
 
-![Alt text](/screenshots/signup3.jpg?raw=true "Signup OTP")
+![Alt text](/screenshots/signup3.jpeg?raw=true "Signup OTP")
 
-![Alt text](/screenshots/signup4.jpg?raw=true "Signup Password PIN")
+![Alt text](/screenshots/signup4.jpeg?raw=true "Signup Password PIN")
 
+
+![Alt text](/screenshots/login.jpeg?raw=true "Login")
 
 ## Dashboard screen 
 
-![Alt text](/screenshots/homepage.jpg?raw=true "Homepage")
+![Alt text](/screenshots/homepage.jpeg?raw=true "Homepage")
 
-![Alt text](/screenshots/sidebar.jpg?raw=true "App Side menu")
+![Alt text](/screenshots/sidebar.jpeg?raw=true "App Side menu")
 
 ## Resources
 
