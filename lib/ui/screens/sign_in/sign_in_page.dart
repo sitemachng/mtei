@@ -5,11 +5,12 @@ import 'package:mtei/ui/screens/sign_in/widgets/sign_in_form.dart';
 
 class SignInPage extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
+      // key: _scaffoldKey,
       body: SafeArea(
         child: Center(
           child: Container(
