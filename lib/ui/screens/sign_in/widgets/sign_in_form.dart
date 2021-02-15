@@ -91,8 +91,8 @@ class SignInForm extends StatelessWidget {
                 color: kPrimaryColor,
                 child: Text('Sign in', style: kSolidButtonTextStyle),
                 onPressed: () async {
-                  Dialogs.showLoadingDialog(context, key: _dialogSignInKeyLoader);
                   if(_formKey.currentState.validate()) {
+                    Dialogs.showLoadingDialog(context, key: _dialogSignInKeyLoader);
                     await userProvider.sinIn(
                         email: _emailController.text,
                         password: passwordController.text
