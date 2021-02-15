@@ -45,7 +45,7 @@ class SignUpPagePhone extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Create your mtei account!',
+                  'Create your Mtei account!',
                   style: kHeadingTextStyle.copyWith(
                     fontWeight: FontWeight.w600,
                     fontSize: 16.0,

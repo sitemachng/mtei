@@ -21,7 +21,7 @@ class UIConfig {
 
   //*  Texts
   static List<String> introDescriptions = [
-    "mtei make it easy to access loan with no collateral require. Get instant funding in your wallet on approval",
+    "Mtei make it easy to access loan with no collateral require. Get instant funding in your wallet on approval",
     '''We provide credit report that let\'s you know your financial standing so as to access more loans''',
     "Enjoy faster payment for your utilities without any service delay. Transfer money, pay bills, buy airtime and lot's more",
     "Our service is available 24/7 everywhere you go. You can also tap in to our USSD service when you don't have network connection.",

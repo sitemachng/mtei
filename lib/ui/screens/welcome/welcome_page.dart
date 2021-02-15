@@ -43,7 +43,7 @@ class WelcomePage extends StatelessWidget {
                 ),
               ),
               Text(
-                'Welcome to mtei!',
+                'Welcome to Mtei!',
                 style: kHeadingTextStyle.copyWith(
                   fontWeight: FontWeight.w600,
                   fontSize: 25.0,
@@ -69,7 +69,7 @@ class WelcomePage extends StatelessWidget {
                     height: MediaQuery.of(context).size.height / 20.0,
                   ),
                   Text(
-                    'I already have a mtei account',
+                    'I already have a Mtei account',
                     style: kBodyTextStyle.copyWith(
                       color: kPrimaryColor,
                     ),

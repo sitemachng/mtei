@@ -13,7 +13,7 @@ class IntroGuideProvider with ChangeNotifier {
       IntroGuide(
         title: 'Get a loan in minutes',
         description:
-            'mtei make it easy to access loan with no collateral require. Get instant funding in your wallet on approval',
+            'Mtei make it easy to access loan with no collateral require. Get instant funding in your wallet on approval',
       ),
       IntroGuide(
         title: 'Improve your credit worth',

@@ -150,7 +150,7 @@ class SignInForm extends StatelessWidget {
               height: 40.0,
             ),
             Text(
-              'mtei is a service provided by Liberty Assured, a licensed regulated lender.',
+              'This service is provided by MTEI, a licensed regulated lender.',
               style: kBodyTextStyle.copyWith(
                   fontSize: 14.0, color: Colors.black54),
             ),
