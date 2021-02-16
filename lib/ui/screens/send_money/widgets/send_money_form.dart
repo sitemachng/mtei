@@ -14,7 +14,6 @@ class SendMoneyForm extends StatefulWidget {
 }
 
 class _SendMoneyFormState extends State<SendMoneyForm> {
-  final GlobalKey<State> _keyLoader = new GlobalKey<State>();
   final _formKey = GlobalKey<FormState>();
   TextEditingController _bankAccountController = TextEditingController();
   TextEditingController _amountController = TextEditingController();
@@ -292,12 +291,15 @@ class _SendMoneyFormState extends State<SendMoneyForm> {
                           color: kSecondaryTextColor)
                       : kSolidButtonTextStyle,
                 ),
-                onPressed: isButtonDisabled ? null : () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ConfirmPayment()),
-                  );
-                },
+                onPressed: isButtonDisabled
+                    ? null
+                    : () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => ConfirmPayment()),
+                        );
+                      },
               ),
             ),
           ],

@@ -3,6 +3,7 @@ import 'package:mtei/ui/core/app_scaffold.dart';
 import 'package:mtei/ui/core/styles.dart';
 import 'package:mtei/helpers/size_config.dart';
 import 'package:mtei/ui/screens/send_money/widgets/payment_method_card.dart';
+import 'package:mtei/ui/screens/manage_cards/add_card_page.dart';
 
 class PaymentMethod extends StatefulWidget {
   PaymentMethod({Key key}) : super(key: key);
@@ -113,7 +114,6 @@ class _PaymentMethodState extends State<PaymentMethod> {
               imagePath: 'assets/images/visa.png',
               isWallet: false,
               onPressed: () {
-                
                 Navigator.pop(context);
               },
             ),
@@ -125,7 +125,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
               cardInfo: 'Mastercard',
               imagePath: 'assets/images/mastercard.png',
               isWallet: false,
-              onPressed: () {                
+              onPressed: () {
                 Navigator.pop(context);
               },
             ),
@@ -136,7 +136,12 @@ class _PaymentMethodState extends State<PaymentMethod> {
               cardTitle: 'Add a new debit/ATM card',
               imagePath: 'assets/images/add-card.png',
               isWallet: false,
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AddCardPage()),
+                );
+              },
             ),
           ],
         ),
