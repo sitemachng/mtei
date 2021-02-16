@@ -52,7 +52,9 @@ class SignInPage extends StatelessWidget {
                 ),
                 SizedBox(height: 40.0),
                 Expanded(
-                  child: SignInForm(scaffoldKey: _scaffoldKey,),
+                  child: SignInForm(
+                    scaffoldKey: _scaffoldKey,
+                  ),
                 ),
               ],
             ),

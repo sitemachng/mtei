@@ -10,7 +10,13 @@ class SignUpPageOTP extends StatelessWidget {
   final String phone;
   final String address;
   final String password;
-  SignUpPageOTP({this.firstName, this.lastName, this.email, this.password, this.phone, this.address});
+  SignUpPageOTP(
+      {this.firstName,
+      this.lastName,
+      this.email,
+      this.password,
+      this.phone,
+      this.address});
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +63,14 @@ class SignUpPageOTP extends StatelessWidget {
                 ),
                 SizedBox(height: 40.0),
                 Expanded(
-                  child: OTPForm(email: email, phone: phone, address: address, password: password, lastName: lastName, firstName: firstName,),
+                  child: OTPForm(
+                    email: email,
+                    phone: phone,
+                    address: address,
+                    password: password,
+                    lastName: lastName,
+                    firstName: firstName,
+                  ),
                 ),
               ],
             ),

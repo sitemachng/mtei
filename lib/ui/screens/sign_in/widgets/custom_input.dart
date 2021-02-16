@@ -16,7 +16,6 @@ class CustomInput extends StatefulWidget {
     this.targetText,
     this.inputFormatter,
     this.defaultText,
-
     this.errorText,
   });
 

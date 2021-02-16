@@ -16,14 +16,19 @@ class BvnForm extends StatefulWidget {
   final String phone;
   final String address;
   final String password;
-  BvnForm({this.firstName, this.lastName, this.email, this.password, this.phone, this.address});
+  BvnForm(
+      {this.firstName,
+      this.lastName,
+      this.email,
+      this.password,
+      this.phone,
+      this.address});
 
   @override
   _BvnFormState createState() => _BvnFormState();
 }
 
 class _BvnFormState extends State<BvnForm> {
-
   final _formKey = GlobalKey<FormState>();
   final TextEditingController bvnController = TextEditingController();
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
@@ -59,10 +64,14 @@ class _BvnFormState extends State<BvnForm> {
                 obscureText: false,
                 inputType: TextInputType.number,
                 iconType: Icons.person,
-                inputFormatter: [FilteringTextInputFormatter.digitsOnly, LengthLimitingTextInputFormatter(10)],
-                validator: (value){
-                  if(value.toString().isEmpty) return 'BVN is empty';
-                  if(value.toString().length < 10) return 'BVN cannot be less than 10 digit';
+                inputFormatter: [
+                  FilteringTextInputFormatter.digitsOnly,
+                  LengthLimitingTextInputFormatter(10)
+                ],
+                validator: (value) {
+                  if (value.toString().isEmpty) return 'BVN is empty';
+                  if (value.toString().length < 10)
+                    return 'BVN cannot be less than 10 digit';
                   return null;
                 },
               ),
@@ -87,7 +96,7 @@ class _BvnFormState extends State<BvnForm> {
                   color: kPrimaryColor,
                   child: Text('Complete Signup', style: kSolidButtonTextStyle),
                   onPressed: () async {
-                    if(_formKey.currentState.validate()){
+                    if (_formKey.currentState.validate()) {
                       // print(widget.firstName);
                       // print(widget.lastName);
                       // print(userProvider.gender);
@@ -97,21 +106,23 @@ class _BvnFormState extends State<BvnForm> {
                       // print(widget.password);
                       // print(widget.phone);
                       // print(bvnController.text);
-                      Dialogs.showLoadingDialog(context, key: _dialogRegisterFinalKeyLoader);
-                      await userProvider.signUp(
-                          firstName: widget.firstName,
-                          lastName: widget.lastName,
-                          gender: userProvider.gender,
-                          dob: userProvider.date,
-                          address: widget.address,
-                          email: widget.email,
-                          password: widget.password,
-                          countryName: '',
-                          stateName: 'null',
-                          phoneNumber: widget.phone,
-                          bvn: bvnController.text
-                      ).then((value) {
-                        if(value == true){
+                      Dialogs.showLoadingDialog(context,
+                          key: _dialogRegisterFinalKeyLoader);
+                      await userProvider
+                          .signUp(
+                              firstName: widget.firstName,
+                              lastName: widget.lastName,
+                              gender: userProvider.gender,
+                              dob: userProvider.date,
+                              address: widget.address,
+                              email: widget.email,
+                              password: widget.password,
+                              countryName: '',
+                              stateName: 'null',
+                              phoneNumber: widget.phone,
+                              bvn: bvnController.text)
+                          .then((value) {
+                        if (value == true) {
                           Navigator.of(context).pop();
                           ExtendedNavigator.root.push(Routes.homePage);
                         } else {

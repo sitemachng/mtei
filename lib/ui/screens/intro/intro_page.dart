@@ -89,7 +89,8 @@ class _IntroPageState extends State<IntroPage> {
                           Text(
                             introGuide.guideList[introGuide.currentIndex].title,
                             textAlign: TextAlign.center,
-                            style: kTitleTextStyle.copyWith(color: kPrimaryColor),
+                            style:
+                                kTitleTextStyle.copyWith(color: kPrimaryColor),
                           ),
                           SizedBox(height: 20.0),
                           Text(
@@ -152,7 +153,8 @@ class _IntroPageState extends State<IntroPage> {
                                     color: kPrimaryColor,
                                     child: Text('Skip',
                                         style: kOutlineButtonTextStyle),
-                                    borderSide: BorderSide(color: kPrimaryColor),
+                                    borderSide:
+                                        BorderSide(color: kPrimaryColor),
                                     onPressed: () {
                                       ExtendedNavigator.of(context)
                                           .popAndPush(Routes.welcomePage);

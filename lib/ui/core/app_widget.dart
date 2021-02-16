@@ -32,9 +32,7 @@ class AppWidget extends StatelessWidget {
             centerTitle: false,
           ),
           floatingActionButtonTheme: FloatingActionButtonThemeData(
-            backgroundColor: Colors.white,
-            foregroundColor: kPrimaryColor
-          ),
+              backgroundColor: Colors.white, foregroundColor: kPrimaryColor),
           inputDecorationTheme: InputDecorationTheme(
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),

@@ -10,7 +10,13 @@ class SignUpPagePincode extends StatelessWidget {
   final String phone;
   final String address;
   final String password;
-  SignUpPagePincode({this.firstName, this.lastName, this.email, this.password, this.phone, this.address});
+  SignUpPagePincode(
+      {this.firstName,
+      this.lastName,
+      this.email,
+      this.password,
+      this.phone,
+      this.address});
 
   @override
   Widget build(BuildContext context) {
@@ -64,7 +70,14 @@ class SignUpPagePincode extends StatelessWidget {
                 ),
                 SizedBox(height: 40.0),
                 Expanded(
-                  child: BvnForm(email: this.email, phone: this.phone, address: this.address, password: this.password, lastName: this.lastName, firstName: this.firstName,),
+                  child: BvnForm(
+                    email: this.email,
+                    phone: this.phone,
+                    address: this.address,
+                    password: this.password,
+                    lastName: this.lastName,
+                    firstName: this.firstName,
+                  ),
                 ),
               ],
             ),

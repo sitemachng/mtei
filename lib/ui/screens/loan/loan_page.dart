@@ -13,11 +13,10 @@ class _LoanPageState extends State<LoanPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(
-      title: Text(widget.title),
-      drawer: AppDrawer(),
-      body: Center(
-        child: Text(widget.title),
-      )
-    );
+        title: Text(widget.title),
+        drawer: AppDrawer(),
+        body: Center(
+          child: Text(widget.title),
+        ));
   }
 }

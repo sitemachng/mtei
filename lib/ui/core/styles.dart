@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 //app Theme
-const kPrimaryColor = Color(0xFF4300c2); //Colors.deepPurple; //Color(0xFFff5722);// 
+const kPrimaryColor =
+    Color(0xFF4300c2); //Colors.deepPurple; //Color(0xFFff5722);//
 const kSecondaryColor = Color(0xFF37079E);
 const kTenarycolor = Color(0xFFCAF0F8);
 const kAppBlue = Colors.lightBlueAccent;

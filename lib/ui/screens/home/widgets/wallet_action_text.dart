@@ -16,28 +16,30 @@ class WalletActionText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
+    return FlatButton(
+      onPressed: onTap,
       child: Column(
         children: [
           Container(
             child: Icon(
               icon,
               color: Colors.white,
+              size: 16.0,
             ),
-            height: 50,
-            width: 50,
+            height: 25,
+            width: 25,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
               color: Color(0xFF7a3eec), //Color(0xFFfb774e),
             ),
           ),
           SizedBox(
-            height: 10,
+            height: 5,
           ),
           Text(
             title,
-            style: kHeadingText3,
+            style: kBodyText4.copyWith(
+                fontWeight: FontWeight.normal, fontSize: 10),
           )
         ],
       ),

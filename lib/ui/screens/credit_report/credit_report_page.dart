@@ -14,10 +14,9 @@ class _CreditReportPageState extends State<CreditReportPage> {
   Widget build(BuildContext context) {
     return AppScaffold(
         title: Text(widget.title),
-      drawer: AppDrawer(),
-      body: Center(
-        child: Text(widget.title),
-      )
-    );
+        drawer: AppDrawer(),
+        body: Center(
+          child: Text(widget.title),
+        ));
   }
 }

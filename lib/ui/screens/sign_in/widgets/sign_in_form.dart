@@ -40,12 +40,13 @@ class SignInForm extends StatelessWidget {
               inputType: TextInputType.emailAddress,
               iconType: Icons.email,
               controller: _emailController,
-              validator: (value){
+              validator: (value) {
                 Pattern pattern =
                     r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
                 RegExp myReg = new RegExp(pattern);
                 if (value.trim().isEmpty) return 'Email cant be empty';
-                if (value.trim().length < 5) return 'Email cannot be less than 5 alphabet';
+                if (value.trim().length < 5)
+                  return 'Email cannot be less than 5 alphabet';
                 if (!myReg.hasMatch(value)) return 'Invalid email address';
                 return null;
               },
@@ -61,9 +62,10 @@ class SignInForm extends StatelessWidget {
               inputType: TextInputType.text,
               iconType: Icons.lock_outline_rounded,
               controller: passwordController,
-              validator: (value){
+              validator: (value) {
                 if (value.trim().isEmpty) return 'Password cannot be empty';
-                if (value.trim().length < 5) return 'Password cannot be less than 5 characters';
+                if (value.trim().length < 5)
+                  return 'Password cannot be less than 5 characters';
                 return null;
               },
             ),
@@ -91,30 +93,32 @@ class SignInForm extends StatelessWidget {
                 color: kPrimaryColor,
                 child: Text('Sign in', style: kSolidButtonTextStyle),
                 onPressed: () async {
-                  if(_formKey.currentState.validate()) {
-                    Dialogs.showLoadingDialog(context, key: _dialogSignInKeyLoader);
-                    await userProvider.sinIn(
-                        email: _emailController.text,
-                        password: passwordController.text
-                    ).then((value) {
-                      if(value != false && value != null){
+                  //TODO: remove line
+                  ExtendedNavigator.of(context).push(Routes.homePage);
+                  return;
+                  if (_formKey.currentState.validate()) {
+                    Dialogs.showLoadingDialog(context,
+                        key: _dialogSignInKeyLoader);
+                    await userProvider
+                        .sinIn(
+                            email: _emailController.text,
+                            password: passwordController.text)
+                        .then((value) {
+                      if (value != false && value != null) {
                         Navigator.of(context).pop();
-                        if(value['success'] == 'false'){
-                          scaffoldKey.currentState.showSnackBar(
-                              SnackBar(
-                                content: Text(value['error'] ?? 'Error'),
-                              )
-                          );
+                        if (value['success'] == 'false') {
+                          scaffoldKey.currentState.showSnackBar(SnackBar(
+                            content: Text(value['error'] ?? 'Error'),
+                          ));
                         } else {
                           ExtendedNavigator.of(context).push(Routes.homePage);
                         }
                       } else {
                         Navigator.of(context).pop();
-                        scaffoldKey.currentState.showSnackBar(
-                            SnackBar(
-                              content: Text('Error login in, please try again later'),
-                            )
-                        );
+                        scaffoldKey.currentState.showSnackBar(SnackBar(
+                          content:
+                              Text('Error login in, please try again later'),
+                        ));
                         // cannot signin
                       }
                       // if(value == true){

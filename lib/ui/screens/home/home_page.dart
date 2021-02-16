@@ -52,12 +52,13 @@ class _HomePageState extends State<HomePage> {
                 ),
                 child: Column(
                   children: [
-                    Text('Need cash instanty?'),
+                    Text('Need cash instanty?', style: kBodyText1),
                     SizedBox(
                       height: 10.0,
                     ),
                     ButtonTheme(
                       minWidth: size.width - 50,
+                      height: 48,
                       child: RaisedButton(
                         color: kPrimaryColor,
                         child: Text(
@@ -94,7 +95,7 @@ class _HomePageState extends State<HomePage> {
                     Text(
                       'Wallet balance',
                       style:
-                          kHeadingText3.copyWith(fontWeight: FontWeight.normal),
+                          kHeadingText4.copyWith(fontWeight: FontWeight.normal),
                     ),
                     SizedBox(
                       height: 10,
@@ -113,16 +114,14 @@ class _HomePageState extends State<HomePage> {
                           title: 'Withdraw',
                           icon: Icons.money,
                           onTap: () {
-                            ExtendedNavigator.root
-                                .push(Routes.walletWithdrawPage);
+                            ExtendedNavigator.root.push(Routes.sendMoneyPage);
                           },
                         ),
                         WalletActionText(
                           title: 'Fund Wallet',
                           icon: Icons.attach_money,
                           onTap: () {
-                            ExtendedNavigator.root
-                                .push(Routes.walletFundPage);
+                            ExtendedNavigator.root.push(Routes.fundWalletPage);
                           },
                         ),
                         WalletActionText(
@@ -130,7 +129,7 @@ class _HomePageState extends State<HomePage> {
                           icon: Icons.payment,
                           onTap: () {
                             ExtendedNavigator.root
-                                .push(Routes.walletTransactionPage);
+                                .push(Routes.transactionsPage);
                           },
                         )
                       ],

@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mtei/ui/core/app_scaffold.dart';
 import 'package:mtei/ui/core/app_drawer.dart';
-import 'package:mtei/ui/core/app_title.dart';
 
-class WalletWithdrawPage extends StatefulWidget {
-  final String title = 'Withdraw From Wallet';
+class TransactionsPage extends StatefulWidget {
+  final String title = 'Transactions';
   @override
-  _WalletWithdrawPageState createState() => _WalletWithdrawPageState();
+  _TransactionsPageState createState() => _TransactionsPageState();
 }
 
-class _WalletWithdrawPageState extends State<WalletWithdrawPage> {
+class _TransactionsPageState extends State<TransactionsPage> {
   @override
   Widget build(BuildContext context) {
     return AppScaffold(

@@ -18,12 +18,6 @@ class _WalletPageState extends State<WalletPage> {
       body: Center(
         child: Text(widget.title),
       ),
-      fab: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Make Payment',
-        child: Icon(Icons.add),
-        elevation: 2.0,
-      ),
     );
   }
 }

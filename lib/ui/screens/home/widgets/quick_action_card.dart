@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:mtei/helpers/size_config.dart';
 import 'package:mtei/ui/core/styles.dart';

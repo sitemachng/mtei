@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 
 import '../screens/bill_payment/bill_payment_page.dart';
 import '../screens/credit_report/credit_report_page.dart';
+import '../screens/fund_wallet/fund_wallet_page.dart';
 import '../screens/home/home_page.dart';
 import '../screens/intro/intro_page.dart';
 import '../screens/loan/loan_page.dart';
@@ -23,10 +24,8 @@ import '../screens/sign_up/sign_up_page.dart';
 import '../screens/sign_up/sign_up_page_otp.dart';
 import '../screens/sign_up/sign_up_page_phone.dart';
 import '../screens/sign_up/sign_up_page_pincode.dart';
-import '../screens/wallet/wallet_fund_page.dart';
+import '../screens/transactions/transactions_page.dart';
 import '../screens/wallet/wallet_page.dart';
-import '../screens/wallet/wallet_transaction_page.dart';
-import '../screens/wallet/wallet_withdraw_page.dart';
 import '../screens/welcome/welcome_page.dart';
 
 class Routes {
@@ -46,9 +45,8 @@ class Routes {
   static const String manageCardsPage = '/manage-cards-page';
   static const String notificationsPage = '/notifications-page';
   static const String profilePage = '/profile-page';
-  static const String walletWithdrawPage = '/wallet-withdraw-page';
-  static const String walletFundPage = '/wallet-fund-page';
-  static const String walletTransactionPage = '/wallet-transaction-page';
+  static const String fundWalletPage = '/fund-wallet-page';
+  static const String transactionsPage = '/transactions-page';
   static const all = <String>{
     introPage,
     welcomePage,
@@ -66,9 +64,8 @@ class Routes {
     manageCardsPage,
     notificationsPage,
     profilePage,
-    walletWithdrawPage,
-    walletFundPage,
-    walletTransactionPage,
+    fundWalletPage,
+    transactionsPage,
   };
 }
 
@@ -92,9 +89,8 @@ class AppRouter extends RouterBase {
     RouteDef(Routes.manageCardsPage, page: ManageCardsPage),
     RouteDef(Routes.notificationsPage, page: NotificationsPage),
     RouteDef(Routes.profilePage, page: ProfilePage),
-    RouteDef(Routes.walletWithdrawPage, page: WalletWithdrawPage),
-    RouteDef(Routes.walletFundPage, page: WalletFundPage),
-    RouteDef(Routes.walletTransactionPage, page: WalletTransactionPage),
+    RouteDef(Routes.fundWalletPage, page: FundWalletPage),
+    RouteDef(Routes.transactionsPage, page: TransactionsPage),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -244,26 +240,18 @@ class AppRouter extends RouterBase {
         transitionsBuilder: TransitionsBuilders.fadeIn,
       );
     },
-    WalletWithdrawPage: (data) {
+    FundWalletPage: (data) {
       return PageRouteBuilder<dynamic>(
         pageBuilder: (context, animation, secondaryAnimation) =>
-            WalletWithdrawPage(),
+            FundWalletPage(),
         settings: data,
         transitionsBuilder: TransitionsBuilders.fadeIn,
       );
     },
-    WalletFundPage: (data) {
+    TransactionsPage: (data) {
       return PageRouteBuilder<dynamic>(
         pageBuilder: (context, animation, secondaryAnimation) =>
-            WalletFundPage(),
-        settings: data,
-        transitionsBuilder: TransitionsBuilders.fadeIn,
-      );
-    },
-    WalletTransactionPage: (data) {
-      return PageRouteBuilder<dynamic>(
-        pageBuilder: (context, animation, secondaryAnimation) =>
-            WalletTransactionPage(),
+            TransactionsPage(),
         settings: data,
         transitionsBuilder: TransitionsBuilders.fadeIn,
       );

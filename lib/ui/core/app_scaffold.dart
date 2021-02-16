@@ -68,39 +68,9 @@ class _AppScaffoldState extends State<AppScaffold> {
                     },
                   ),
             actions: [
-              InkResponse(
-                child: Container(
-                  child: Icon(
-                    Icons.notifications,
-                    color: Colors.white,
-                    size: 32,
-                  ),
-                ),
-                onTap: () {
-                  ExtendedNavigator.root.popAndPush(Routes.notificationsPage);
-                },
-              ),
               SizedBox(
                 width: 10.0,
               ),
-              InkResponse(
-                child: Container(
-                  width: 35.0,
-                  height: 35.0,
-                  margin: EdgeInsets.all(10.0),
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      image: ExactAssetImage('assets/images/user.png'),
-                      fit: BoxFit.cover,
-                    ),
-                    borderRadius: BorderRadius.circular(50.0),
-                  ),
-                ),
-                onTap: () {
-                  _scaffoldKey.currentState.openDrawer();
-                  ExtendedNavigator.root.popAndPush(Routes.profilePage);
-                },
-              )
             ],
           ),
           body: widget.body,

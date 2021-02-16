@@ -16,9 +16,8 @@ import 'package:mtei/ui/screens/bill_payment/bill_payment_page.dart';
 import 'package:mtei/ui/screens/manage_cards/manage_cards_page.dart';
 import 'package:mtei/ui/screens/notifications/notifications_page.dart';
 import 'package:mtei/ui/screens/profile/profile_page.dart';
-import 'package:mtei/ui/screens/wallet/wallet_withdraw_page.dart';
-import 'package:mtei/ui/screens/wallet/wallet_fund_page.dart';
-import 'package:mtei/ui/screens/wallet/wallet_transaction_page.dart';
+import 'package:mtei/ui/screens/transactions/transactions_page.dart';
+import 'package:mtei/ui/screens/fund_wallet/fund_wallet_page.dart';
 
 @MaterialAutoRouter(
   routes: <AutoRoute>[
@@ -55,12 +54,9 @@ import 'package:mtei/ui/screens/wallet/wallet_transaction_page.dart';
     CustomRoute(
         page: ProfilePage, transitionsBuilder: TransitionsBuilders.fadeIn),
     CustomRoute(
-        page: WalletWithdrawPage, transitionsBuilder: TransitionsBuilders.fadeIn),
+        page: FundWalletPage, transitionsBuilder: TransitionsBuilders.fadeIn),
     CustomRoute(
-        page: WalletFundPage,
-        transitionsBuilder: TransitionsBuilders.fadeIn),
-    CustomRoute(
-        page: WalletTransactionPage, transitionsBuilder: TransitionsBuilders.fadeIn),
+        page: TransactionsPage, transitionsBuilder: TransitionsBuilders.fadeIn),
   ],
 )
 class $AppRouter {}

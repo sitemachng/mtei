@@ -60,7 +60,11 @@ class SignUpPagePhone extends StatelessWidget {
                 // ),
                 SizedBox(height: 40.0),
                 Expanded(
-                  child: PhoneInputForm(email: email, firstName: firstName, lastName: lastName,),
+                  child: PhoneInputForm(
+                    email: email,
+                    firstName: firstName,
+                    lastName: lastName,
+                  ),
                 ),
               ],
             ),
